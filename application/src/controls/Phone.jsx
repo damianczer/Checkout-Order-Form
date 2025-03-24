@@ -2,7 +2,7 @@ import React from 'react';
 import { TextField as MuiTextField, InputAdornment } from '@mui/material';
 import InputMask from 'react-input-mask';
 
-const PhoneNumberField = ({ input, meta: { touched, error }, ...custom }) => (
+const Phone = ({ input, meta: { touched, error }, ...custom }) => (
   <InputMask
     {...input}
     mask="999 999 999"
@@ -24,4 +24,4 @@ const PhoneNumberField = ({ input, meta: { touched, error }, ...custom }) => (
   </InputMask>
 );
 
-export default PhoneNumberField;
+export default Phone;

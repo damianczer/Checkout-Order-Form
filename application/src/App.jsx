@@ -19,6 +19,7 @@ import Copyright from './components/Copyright';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import Box from '@mui/material/Box';
+import AddressData from './components/AddressData';
 
 const steps = ['Personal Data', 'Shipping Address', 'Payment Details', 'Review Order'];
 
@@ -27,17 +28,17 @@ const selectFormData = createSelector(
   formData => formData || {}
 );
 
-const App = ({ handleSubmit }) => {
+const App = ({ handleSubmit, valid }) => {
   const [activeStep, setActiveStep] = useState(0);
   const formData = useSelector(selectFormData);
-
-  console.log(formData);
 
   const submit = values => {
   };
 
   const handleNext = () => {
-    setActiveStep(prevActiveStep => prevActiveStep + 1);
+    if (valid) {
+      setActiveStep(prevActiveStep => prevActiveStep + 1);
+    }
   };
 
   const handleBack = () => {
@@ -48,6 +49,8 @@ const App = ({ handleSubmit }) => {
     switch (step) {
       case 0:
         return <PersonalData formData={formData} />;
+      case 1:
+        return <AddressData />;
       default:
         throw new Error('Unknown step');
     }
@@ -97,8 +100,13 @@ const App = ({ handleSubmit }) => {
             </Typography>
             <Stepper activeStep={activeStep} sx={{ flexWrap: 'wrap', width: '60%', margin: '0 auto', pt: 3, pb: 5 }}>
               {steps.map(label => (
-                <Step key={label} sx={{ flexWrap: 'wrap', mt: 1 }}>
-                  <StepLabel>{label}</StepLabel>
+                <Step key={label} sx={
+                  {
+                    flexWrap: 'wrap',
+                    mt: 1,
+                    '& .MuiStepLabel-root .Mui-completed': { color: 'green' }
+                  }}>
+                  <StepLabel sx={{ color: 'grey' }}>{label}</StepLabel>
                 </Step>
               ))}
             </Stepper>

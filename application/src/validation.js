@@ -21,3 +21,15 @@ export const strongPassword = value => value && /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)
 export const equalsPassword = (value, allValues) => value === allValues.password
   ? undefined
   : 'Passwords do not match.';
+
+export const zipcode = value => value && /^\d{2}-\d{3}$/.test(value)
+  ? undefined
+  : 'Invalid zipcode format.';
+
+export const age = value => value && (value < 16 || value > 100)
+  ? 'Age must be between 16 and 100.'
+  : undefined;
+
+export const houseNumber = value => value && value.toString().length > 4
+  ? 'House number cannot be longer than 4 digits.'
+  : undefined;

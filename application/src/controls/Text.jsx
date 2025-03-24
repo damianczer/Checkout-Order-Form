@@ -1,7 +1,7 @@
 import React from 'react';
 import { TextField as MuiTextField } from '@mui/material';
 
-const TextField = ({ input, meta: { touched, error }, ...custom }) => (
+const Text = ({ input, meta: { touched, error }, ...custom }) => (
   <MuiTextField
     {...input}
     {...custom}
@@ -13,4 +13,4 @@ const TextField = ({ input, meta: { touched, error }, ...custom }) => (
   />
 );
 
-export default TextField;
+export default Text;

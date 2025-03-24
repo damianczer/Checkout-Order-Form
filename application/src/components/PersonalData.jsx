@@ -1,19 +1,20 @@
 import React, { memo } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { Grid, MenuItem, Box } from '@mui/material';
-import TextField from '../controls/TextField';
+import Text from '../controls/Text';
 import Select from '../controls/Select';
 import Checkbox from '../controls/Checkbox';
 import Label from '../controls/Label';
 import Wrapper from '../controls/Wrapper';
-import PhoneNumberField from '../controls/PhoneNumberField';
+import Phone from '../controls/Phone';
 import {
   required,
-  email as emailValidation,
+  email,
   onlyLetters,
   phoneNumber,
   strongPassword,
-  equalsPassword
+  equalsPassword,
+  age
 } from '../validation';
 
 const PersonalData = ({ formData }) => {
@@ -43,7 +44,7 @@ const PersonalData = ({ formData }) => {
           <Label>First Name: *</Label>
           <Field
             name="firstName"
-            component={TextField}
+            component={Text}
             validate={[required, onlyLetters]}
           />
         </Wrapper>
@@ -51,7 +52,7 @@ const PersonalData = ({ formData }) => {
           <Label>Last Name: *</Label>
           <Field
             name="lastName"
-            component={TextField}
+            component={Text}
             validate={[required, onlyLetters]}
           />
         </Wrapper>
@@ -70,24 +71,24 @@ const PersonalData = ({ formData }) => {
           <Label>Age: *</Label>
           <Field
             name="age"
-            component={TextField}
+            component={Text}
             type="number"
-            validate={[required]}
+            validate={[required, age]}
           />
         </Wrapper>
         <Wrapper>
           <Label>E-mail: *</Label>
           <Field
             name="email"
-            component={TextField}
-            validate={[required, emailValidation]}
+            component={Text}
+            validate={[required, email]}
           />
         </Wrapper>
         <Wrapper>
           <Label>Phone Number: *</Label>
           <Field
             name="phoneNumber"
-            component={PhoneNumberField}
+            component={Phone}
             validate={[required, phoneNumber]}
           />
         </Wrapper>
@@ -105,7 +106,7 @@ const PersonalData = ({ formData }) => {
               <Label>Password: *</Label>
               <Field
                 name="password"
-                component={TextField}
+                component={Text}
                 type="password"
                 validate={formData.createAccount ? [required, strongPassword] : []}
               />
@@ -114,7 +115,7 @@ const PersonalData = ({ formData }) => {
               <Label>Repeat Password: *</Label>
               <Field
                 name="repeatPassword"
-                component={TextField}
+                component={Text}
                 type="password"
                 validate={formData.createAccount ? [required, equalsPassword] : []}
               />
