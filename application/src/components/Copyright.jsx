@@ -1,3 +1,4 @@
+import React from 'react';
 import { Typography } from "@mui/material";
 
 const Copyright = () => {
@@ -6,7 +7,12 @@ const Copyright = () => {
             variant="body2"
             color="text.secondary"
             align="center"
-            sx={{ mt: 3, mx: '30px' }}
+            width="100%"
+            sx={{
+                mt: { xs: '10px', lg: '20px' },
+                pl: { xs: '25px', lg: '20px' },
+                pb: { xs: '10px', lg: '20px' }           
+            }}
         >
             {'Copyright © '}
             {new Date().getFullYear()}

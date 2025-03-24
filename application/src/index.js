@@ -5,6 +5,7 @@ import App from './App';
 import store from './store';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
 root.render(
   <Provider store={store}>
     <React.StrictMode>
