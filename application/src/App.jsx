@@ -1,4 +1,5 @@
 import React, { useState, memo } from 'react';
+import { reduxForm } from 'redux-form';
 import { useSelector } from 'react-redux';
 import { createSelector } from 'reselect';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -6,20 +7,20 @@ import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Paper from '@mui/material/Paper';
-import ProductSummary from './components/ProductSummary';
-import { reduxForm } from 'redux-form';
-import Grid from '@mui/material/Grid'; // Revert to stable Grid component
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import Grid from '@mui/material/Grid';
+import Box from '@mui/material/Box';
 import Stepper from '@mui/material/Stepper';
 import Step from '@mui/material/Step';
 import StepLabel from '@mui/material/StepLabel';
 import Button from '@mui/material/Button';
 import PersonalData from './components/PersonalData';
-import './App.css';
 import Copyright from './components/Copyright';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
-import Box from '@mui/material/Box';
+import ProductSummary from './components/ProductSummary';
 import AddressData from './components/AddressData';
+import PaymentData from './components/PaymentData';
+import './App.css';
 
 const steps = ['Personal Data', 'Shipping Address', 'Payment Details', 'Review Order'];
 
@@ -51,6 +52,8 @@ const App = ({ handleSubmit, valid }) => {
         return <PersonalData formData={formData} />;
       case 1:
         return <AddressData />;
+      case 2:
+        return <PaymentData />;
       default:
         throw new Error('Unknown step');
     }
