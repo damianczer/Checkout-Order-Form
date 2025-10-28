@@ -1,36 +1,11 @@
-# 🛒 Advanced React Checkout System
-
-> **Enterprise-grade checkout solution** built with React, Redux, and Material-UI, featuring comprehensive form validation, multi-step wizard flow, and production-ready architecture.
-
-<div align="center">
+# Checkout Order Form (Purchase UI - Store)
 
 [![React](https://img.shields.io/badge/React-18.2.0-61DAFB?style=for-the-badge&logo=react)](https://reactjs.org/)
 [![Redux](https://img.shields.io/badge/Redux-4.2.1-764ABC?style=for-the-badge&logo=redux)](https://redux.js.org/)
 [![Material-UI](https://img.shields.io/badge/MUI-6.4.9-007FFF?style=for-the-badge&logo=mui)](https://mui.com/)
 [![TypeScript Ready](https://img.shields.io/badge/TypeScript-Ready-3178C6?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
 
-</div>
-
-## 📸 Live Preview
-
-<table>
-  <tr>
-    <td align="center"><strong>🎯 Multi-Step Form Flow</strong></td>
-    <td align="center"><strong>📱 Mobile-First Responsive Design</strong></td>
-  </tr>
-  <tr>
-    <td><img src="https://github.com/user-attachments/assets/a88e0ab5-d900-4f25-be7e-3ebf61310c69" width="450"/></td>
-    <td><img src="https://github.com/user-attachments/assets/b8bcc0f7-824a-4e18-b063-8e4d4c935723" width="450"/></td>
-  </tr>
-  <tr>
-    <td align="center"><strong>✅ Real-time Validation System</strong></td>
-    <td align="center"><strong>🎉 Professional Thank You Page</strong></td>
-  </tr>
-  <tr>
-    <td><img src="https://github.com/user-attachments/assets/6cf651e3-7323-4c43-abca-5e1bdf6013e8" width="450"/></td>
-    <td><img src="https://github.com/user-attachments/assets/5f2c2fe2-547f-46c9-bd09-0286bc63db22" width="450"/></td>
-  </tr>
-</table>
+> **Enterprise-grade checkout solution** built with React, Redux, and Material-UI, featuring comprehensive form validation, multi-step wizard flow, and production-ready architecture.
 
 ## ✨ Key Features & Capabilities
 
@@ -162,43 +137,6 @@ npm run build
 # Ensure server redirects all routes to index.html (SPA)
 ```
 
-## 🎯 **Advanced Problem Solutions**
-
-### **🔄 Browser Autofill Challenge**
-**Issue**: Browser autofill bypasses Redux Form validation
-```javascript
-// Solution: Custom onChange handler with validation trigger
-onChange={(event) => {
-  input.onChange(event);
-  setTimeout(() => input.onBlur(event), 0); // Force validation
-}}
-```
-
-### **📅 Date Picker Integration**
-**Issue**: MUI DatePicker default values not recognized by Redux Form
-```javascript
-// Solution: useEffect hook for explicit form state initialization
-useEffect(() => {
-  if (!input.value) {
-    input.onChange(new Date()); // Set default in form state
-  }
-}, [input]);
-```
-
-### **✅ Multi-Step Validation**
-**Issue**: Step navigation requires comprehensive validation check
-```javascript
-// Solution: Programmatic field touching with validation state
-const handleNext = () => {
-  dispatch(touch('contactForm', ...allFields));
-  setTimeout(() => {
-    if (valid && captchaVerified) {
-      proceedToNextStep();
-    }
-  }, 100);
-};
-```
-
 ## 📊 **Performance Metrics**
 
 - **🚀 First Contentful Paint**: < 1.2s
@@ -236,6 +174,13 @@ npm install --save-dev @testing-library/react @testing-library/jest-dom
 ✅ Accessibility compliance
 ```
 
+## 📸 Live Preview
+
+<img src="https://github.com/user-attachments/assets/a88e0ab5-d900-4f25-be7e-3ebf61310c69"/>
+<img src="https://github.com/user-attachments/assets/6cf651e3-7323-4c43-abca-5e1bdf6013e8"/>
+<img src="https://github.com/user-attachments/assets/b8bcc0f7-824a-4e18-b063-8e4d4c935723"/>
+<img src="https://github.com/user-attachments/assets/5f2c2fe2-547f-46c9-bd09-0286bc63db22"/>
+
 ## 🚀 **Production Deployment**
 
 ### **Build Optimization**
@@ -254,21 +199,6 @@ npm install --save-dev @testing-library/react @testing-library/jest-dom
 ```
 MIT License - Free for commercial and personal use
 ```
-
-## 👨‍💻 **Professional Contact**
-
-<div align="center">
-
-**Damian Czerwiński** - *Full-Stack Developer*
-
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-daczerw-0077B5?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/daczerw)
-[![GitHub](https://img.shields.io/badge/GitHub-damianczer-181717?style=for-the-badge&logo=github)](https://github.com/damianczer)
-
-*Specialized in React ecosystem, form handling, and user experience optimization*
-
-</div>
-
----
 
 <div align="center">
 
