@@ -12,11 +12,6 @@ A comprehensive React Redux checkout order form with advanced field validation, 
 
 <img width="986" height="894" alt="image" src="https://github.com/user-attachments/assets/5f2c2fe2-547f-46c9-bd09-0286bc63db22" />
 
-
-
-
-
-
 ## 🚀 Features
 
 ### Core Functionality
@@ -102,7 +97,7 @@ A comprehensive React Redux checkout order form with advanced field validation, 
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/checkout-order.git
+   git clone https://github.com/damianczer/checkout-order.git
    cd checkout-order/application
    ```
 
@@ -160,115 +155,6 @@ application/
 └── .gitignore             # Git ignore rules
 ```
 
-## 🔍 Key Problem Solutions
-
-### 1. Autofill Validation Issue
-**Problem**: Browser autofill doesn't trigger Redux Form validation
-**Solution**: Implemented custom `onChange` handlers that force validation on autofill events
-```javascript
-onChange={(event) => {
-  input.onChange(event);
-  setTimeout(() => input.onBlur(event), 0);
-}}
-```
-
-### 2. Date Picker Default Value
-**Problem**: MUI DatePicker showing default date but Redux Form not recognizing the value
-**Solution**: UseEffect hook to explicitly set default value in form state
-```javascript
-useEffect(() => {
-  if (!input.value) {
-    input.onChange(new Date());
-  }
-}, [input]);
-```
-
-### 3. Multi-step Form Validation
-**Problem**: Need to validate all fields when clicking "Next" button
-**Solution**: Touch all fields programmatically to trigger validation display
-```javascript
-const handleNext = () => {
-  dispatch(touch('contactForm', ...allFields));
-  setTimeout(() => {
-    if (valid) {
-      setActiveStep(prevActiveStep => prevActiveStep + 1);
-    }
-  }, 100);
-};
-```
-
-### 4. Input Masking with Validation
-**Problem**: Masked inputs (phone, IBAN, BIC) need both formatting and validation
-**Solution**: Custom components combining react-input-mask with Redux Form integration
-
-### 5. Responsive Layout Challenges
-**Problem**: Complex layout with sidebar and main content area
-**Solution**: CSS Grid and Flexbox combination with Material-UI breakpoints
-
-### 6. API Error Handling
-**Problem**: External REST Countries API reliability
-**Solution**: Comprehensive error handling with user-friendly fallbacks
-
-## 🎨 Design Features
-
-### Visual Design
-- **Material Design principles** throughout the application
-- **Consistent color scheme** with primary blue (#1976d2) and success green
-- **Professional typography** with proper hierarchy
-- **Smooth transitions** and hover effects
-- **Responsive breakpoints** for optimal mobile experience
-
-### User Experience
-- **Progressive disclosure** through multi-step wizard
-- **Clear visual feedback** for form validation states
-- **Intuitive navigation** with back/next buttons
-- **Loading states** and error handling
-- **Accessibility considerations** with proper ARIA labels
-
-### Form Usability
-- **Smart field formatting** (auto-dash in postal codes, phone masking)
-- **Contextual help text** through helper text and placeholders
-- **Logical field grouping** across multiple steps
-- **Validation timing** optimized for user experience
-
-## 🔒 Security Considerations
-
-- **Client-side validation** with server-side validation recommended
-- **hCaptcha integration** for bot protection
-- **Input sanitization** through controlled components
-- **XSS prevention** through React's built-in protections
-
-## 🧪 Testing Recommendations
-
-### Manual Testing Scenarios
-1. **Complete form flow** from start to finish
-2. **Validation testing** with invalid inputs
-3. **Autofill scenarios** across different browsers
-4. **Mobile responsiveness** testing
-5. **API failure handling** (disconnect internet)
-6. **Back/forward navigation** through steps
-
-### Automated Testing Setup
-```bash
-# Install testing dependencies
-npm install --save-dev @testing-library/react @testing-library/jest-dom
-
-# Run tests
-npm test
-```
-
-## 🚀 Deployment
-
-### Build Optimization
-- **Code splitting** through React lazy loading
-- **Asset optimization** via React Scripts
-- **Production builds** with minification
-
-### Environment Configuration
-- Configure hCaptcha site keys for different environments
-- Set up API endpoints for production
-- Configure build scripts for CI/CD
-
 ## 📈 Performance Optimizations
 
 - **React.memo** usage for component optimization
@@ -276,14 +162,6 @@ npm test
 - **Lazy loading** for heavy components
 - **Input debouncing** for API calls
 - **Asset optimization** and compression
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
 
 ## 📄 License
 
@@ -295,12 +173,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - LinkedIn: [daczerw](https://www.linkedin.com/in/daczerw)
 - GitHub: [Your GitHub Profile]
 
-## 🙏 Acknowledgments
-
-- Material-UI team for excellent component library
-- Redux Form community for form state management
-- REST Countries API for reliable country data
-- React community for comprehensive documentation
 
 ---
 
