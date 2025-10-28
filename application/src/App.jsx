@@ -1,5 +1,5 @@
 import React, { useState, memo } from 'react';
-import { reduxForm } from 'redux-form';
+import { reduxForm, touch } from 'redux-form';
 import { useSelector } from 'react-redux';
 import { createSelector } from 'reselect';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -8,7 +8,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Paper from '@mui/material/Paper';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Stepper from '@mui/material/Stepper';
@@ -20,26 +20,48 @@ import Copyright from './components/Copyright';
 import ProductSummary from './components/ProductSummary';
 import AddressData from './components/AddressData';
 import PaymentData from './components/PaymentData';
+import Summary from './components/Summary';
+import ThankYouPage from './components/ThankYouPage';
 import './App.css';
 
-const steps = ['Personal Data', 'Shipping Address', 'Payment Details', 'Review Order'];
+const steps = ['Personal Data', 'Shipping Address', 'Payment Details', 'Summary'];
 
 const selectFormData = createSelector(
-  state => state.form.checkoutForm?.values,
+  state => state.form.contactForm?.values,
   formData => formData || {}
 );
 
-const App = ({ handleSubmit, valid }) => {
+const App = ({ handleSubmit, valid, dispatch }) => {
   const [activeStep, setActiveStep] = useState(0);
+  const [orderCompleted, setOrderCompleted] = useState(false);
   const formData = useSelector(selectFormData);
+
+  const allFields = [
+    'firstName', 'lastName', 'gender', 'age', 'email', 'phoneNumber',
+    'zipcode', 'city', 'street', 'houseNumber', 'country', 'addressLine',
+    'bankAccountHolder', 'iban', 'bic', 'paymentDate', 'password', 'repeatPassword',
+    'captchaToken'
+  ];
 
   const submit = values => {
   };
 
   const handleNext = () => {
-    if (valid) {
-      setActiveStep(prevActiveStep => prevActiveStep + 1);
-    }
+    dispatch(touch('contactForm', ...allFields));
+    
+    setTimeout(() => {
+      if (activeStep === steps.length - 1 && !formData.captchaToken) {
+        return;
+      }
+      
+      if (valid && (activeStep < steps.length - 1 || formData.captchaToken)) {
+        if (activeStep === steps.length - 1) {
+          setOrderCompleted(true);
+        } else {
+          setActiveStep(prevActiveStep => prevActiveStep + 1);
+        }
+      }
+    }, 100);
   };
 
   const handleBack = () => {
@@ -54,10 +76,16 @@ const App = ({ handleSubmit, valid }) => {
         return <AddressData />;
       case 2:
         return <PaymentData />;
+      case 3:
+        return <Summary formData={formData} />;
       default:
-        throw new Error('Unknown step');
+        return <Typography variant="h6" align="center">Unknown step</Typography>;
     }
   };
+
+  if (orderCompleted) {
+    return <ThankYouPage />;
+  }
 
   return (
     <>
@@ -72,14 +100,24 @@ const App = ({ handleSubmit, valid }) => {
           <Typography variant="h6" color="inherit" noWrap>
             DC Platform
           </Typography>
-          <a
-            href="https://www.linkedin.com/in/daczerw"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ marginLeft: 'auto', color: '#0077b5' }}
-          >
-            <FontAwesomeIcon icon={faLinkedin} size="lg" />
-          </a>
+          <Box sx={{ marginLeft: 'auto', display: 'flex', gap: 2 }}>
+            <a
+              href="https://www.linkedin.com/in/daczerw"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: '#0077b5' }}
+            >
+              <FontAwesomeIcon icon={faLinkedin} size="lg" />
+            </a>
+            <a
+              href="https://github.com/damianczer"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: '#333' }}
+            >
+              <FontAwesomeIcon icon={faGithub} size="lg" />
+            </a>
+          </Box>
         </Toolbar>
       </AppBar>
       <Grid container spacing={3} sx={{ mt: 1, height: '85vh', px: '0px' }}>
@@ -135,14 +173,16 @@ const App = ({ handleSubmit, valid }) => {
             </form>
           </Paper>
         </Grid>
-        <Copyright />
       </Grid>
-
+      <Box sx={{ width: '100%', display: 'flex', justifyContent: 'center', mt: -1 }}>
+        <Copyright />
+      </Box>
     </>
   );
 };
 
 export default reduxForm({
-  form: 'checkoutForm',
-  destroyOnUnmount: false
+  form: 'contactForm',
+  destroyOnUnmount: false,
+  enableReinitialize: true
 })(memo(App));

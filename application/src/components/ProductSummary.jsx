@@ -8,7 +8,7 @@ const ProductSummary = () => (
         sx={{
             my: { xs: 0, md: 0 },
             p: { xs: 2, md: 3 },
-            height: '100%',
+            height: { xs: 'auto', lg: '100%' },
             backgroundColor: '#f7f9ff',
             m: '30px'
         }}

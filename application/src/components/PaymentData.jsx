@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import Container from '../controls/Container';
 import Text from '../controls/Text';
@@ -8,8 +8,6 @@ import Iban from '../controls/Iban';
 import Bic from '../controls/Bic';
 import DatePicker from '../controls/DatePicker';
 import { required, iban, bic, onlyLetters } from '../validation';
-
-const normalizeUppercase = value => value && value.toUpperCase();
 
 const PaymentData = () => {
   return (
@@ -27,7 +25,7 @@ const PaymentData = () => {
         <Field
           name="iban"
           component={Iban}
-          validate={[required, iban]} 
+          validate={[required, iban]}
         />
       </Wrapper>
       <Wrapper>
@@ -36,7 +34,7 @@ const PaymentData = () => {
           name="bic"
           component={Bic}
           validate={[required, bic]}
-          normalize={normalizeUppercase}
+          normalize={value => value && value.toUpperCase()}
         />
       </Wrapper>
       <Wrapper>
@@ -54,4 +52,4 @@ const PaymentData = () => {
 export default reduxForm({
   form: 'contactForm',
   destroyOnUnmount: false
-})(PaymentData);
+})(memo(PaymentData));

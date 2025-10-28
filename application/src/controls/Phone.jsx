@@ -7,6 +7,10 @@ const Phone = ({ input, meta: { touched, error }, ...custom }) => (
     {...input}
     mask="999 999 999"
     maskChar=""
+    onBlur={(event) => {
+      input.onChange(event.target.value);
+      input.onBlur(event);
+    }}
   >
     {() => (
       <MuiTextField

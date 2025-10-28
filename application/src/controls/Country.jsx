@@ -5,14 +5,27 @@ const Country = ({ input, meta: { touched, error } }) => {
   const [countries, setCountries] = useState([]);
 
   useEffect(() => {
-    fetch('https://restcountries.com/v3.1/all')
-      .then(response => response.json())
+    fetch('https://restcountries.com/v3.1/all?fields=name,cca2')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+      })
       .then(data => {
-        const countryList = data.map(country => ({
-          name: country.name.common,
-          code: country.cca2
-        }));
-        setCountries(countryList);
+        if (Array.isArray(data)) {
+          const countryList = data.map(country => {
+            return {
+              name: country.name?.common || country.name,
+              code: country.cca2 || country.code
+            };
+          }).filter(country => country.name && country.code);
+          
+          setCountries(countryList);
+        }
+      })
+      .catch(error => {
+        console.error('Error fetching countries:', error);
       });
   }, []);
 

@@ -12,7 +12,7 @@ const Container = ({ children }) => (
       container
       spacing={1}
       sx={{
-        maxWidth: 700,
+        maxWidth: 900,
         marginLeft: 'auto',
         marginRight: 'auto',
         paddingLeft: '30px'

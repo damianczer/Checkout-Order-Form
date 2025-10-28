@@ -108,6 +108,7 @@ const PersonalData = ({ formData }) => {
 };
 
 export default reduxForm({
-  form: 'checkoutForm',
-  destroyOnUnmount: false
+  form: 'contactForm',
+  destroyOnUnmount: false,
+  enableReinitialize: true
 })(memo(PersonalData));
