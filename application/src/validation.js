@@ -41,3 +41,7 @@ export const iban = value => value && /^\d{2} \d{4} \d{4} \d{4} \d{4} \d{4} \d{4
 export const bic = value => value && /^[A-Za-z]{6}[0-9]{2}$/.test(value)
   ? undefined
   : 'Invalid BIC format.';
+
+export const captchaRequired = value => value
+  ? undefined
+  : 'Please complete the captcha verification.';

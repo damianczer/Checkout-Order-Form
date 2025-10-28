@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import Text from '../controls/Text';
 import Wrapper from '../controls/Wrapper';
@@ -64,4 +64,4 @@ const AddressData = () => (
 export default reduxForm({
   form: 'contactForm',
   destroyOnUnmount: false
-})(AddressData);
+})(memo(AddressData));

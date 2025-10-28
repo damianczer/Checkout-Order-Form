@@ -16,6 +16,9 @@ const Zipcode = ({ input, meta, ...rest }) => {
       {...rest}
       value={input.value}
       onChange={handleChange}
+      onBlur={(event) => {
+        input.onBlur(event);
+      }}
       error={meta.touched && meta.error}
       helperText={meta.touched && meta.error}
       inputProps={{ maxLength: 6 }}
