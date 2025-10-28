@@ -3,6 +3,7 @@
   "author": "Damian Czerwiński",
   "private": true,
   "version": "0.1.0",
+  "homepage": ".",
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
