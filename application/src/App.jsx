@@ -120,7 +120,7 @@ const App = ({ handleSubmit, valid, dispatch }) => {
           </Box>
         </Toolbar>
       </AppBar>
-      <Grid container spacing={3} sx={{ mt: 1, height: { xs: 'auto', lg: '85vh' }, px: '0px', pb: { xs: 8, lg: 0 } }}>
+      <Grid container spacing={3} sx={{ mt: 1, height: '85vh', px: '0px' }}>
         <Grid item xs={12} lg={3} sx={{ height: { xs: 'auto', lg: '100%' } }}>
           <ProductSummary />
         </Grid>
@@ -129,11 +129,11 @@ const App = ({ handleSubmit, valid, dispatch }) => {
             variant="outlined"
             sx={{
               p: { xs: 2 },
-              height: { xs: 'auto', lg: '100%' },
+              height: '100%',
               width: { xs: 'calc(100% - 60px)', lg: 'calc(100% - 5px)' },
               ml: { xs: '30px', lg: '-25px' },
               mr: { xs: '30px', lg: '30px' },
-              mb: { xs: 2, lg: '30px' }
+              mb: '30px'
             }}
           >
             <Typography variant="h5" align="center">
@@ -174,16 +174,7 @@ const App = ({ handleSubmit, valid, dispatch }) => {
           </Paper>
         </Grid>
       </Grid>
-      <Box sx={{ 
-        width: '100%', 
-        display: 'flex', 
-        justifyContent: 'center', 
-        mt: { xs: 2, lg: -1 },
-        position: { xs: 'relative', lg: 'static' },
-        pb: { xs: 2, lg: 0 }
-      }}>
-        <Copyright />
-      </Box>
+      <Copyright />
     </>
   );
 };
