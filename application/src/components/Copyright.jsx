@@ -9,9 +9,13 @@ const Copyright = () => {
             align="center"
             width="100%"
             sx={{
-                mt: { xs: '10px', lg: '20px' },
-                pl: { xs: '25px', lg: '20px' },
-                pb: { xs: '10px', lg: '20px' }           
+                position: 'fixed',
+                bottom: 0,
+                left: 0,
+                right: 0,
+                backgroundColor: '#f5f5f5',
+                py: 1,
+                zIndex: 1000
             }}
         >
             {'Copyright © '}
