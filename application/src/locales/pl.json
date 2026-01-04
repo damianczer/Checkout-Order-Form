@@ -1,0 +1,124 @@
+{
+    "common": {
+        "back": "Wstecz",
+        "next": "Dalej",
+        "buy": "Kup",
+        "loading": "Ładowanie...",
+        "error": "Wystąpił błąd",
+        "required": "Wymagane",
+        "free": "Gratis"
+    },
+    "header": {
+        "title": "DC Platform"
+    },
+    "footer": {
+        "copyright": "Copyright © Checkout Order Form",
+        "allRightsReserved": "Wszelkie prawa zastrzeżone.",
+        "createdBy": "Stworzone przez",
+        "privacyPolicy": "Polityka Prywatności",
+        "termsOfService": "Regulamin"
+    },
+    "checkout": {
+        "title": "Zamówienie",
+        "steps": {
+            "personalData": "Dane Osobowe",
+            "shippingAddress": "Adres Dostawy",
+            "paymentDetails": "Dane Płatności",
+            "summary": "Podsumowanie"
+        }
+    },
+    "personalData": {
+        "firstName": "Imię:",
+        "lastName": "Nazwisko:",
+        "gender": "Płeć:",
+        "age": "Wiek:",
+        "email": "E-mail:",
+        "phoneNumber": "Numer Telefonu:",
+        "createAccount": "Chcę założyć konto.",
+        "password": "Hasło:",
+        "repeatPassword": "Powtórz Hasło:",
+        "male": "Mężczyzna",
+        "female": "Kobieta"
+    },
+    "addressData": {
+        "zipcode": "Kod pocztowy:",
+        "city": "Miasto:",
+        "street": "Ulica:",
+        "houseNumber": "Numer domu:",
+        "country": "Kraj:",
+        "addressLine": "Dodatkowy adres (opcjonalnie):"
+    },
+    "paymentData": {
+        "bankAccountHolder": "Właściciel konta bankowego:",
+        "iban": "IBAN:",
+        "bic": "BIC:",
+        "paymentDate": "Data płatności:"
+    },
+    "summary": {
+        "title": "Podsumowanie zamówienia",
+        "captchaRequired": "Proszę ukończyć weryfikację captcha, aby kontynuować."
+    },
+    "products": {
+        "orderSummary": "Podsumowanie zamówienia",
+        "total": "Suma",
+        "free": "Gratis",
+        "dcPlatform": {
+            "name": "DC Platform (Premium+)",
+            "description": "Miesięczna subskrypcja"
+        },
+        "softwarePackage": {
+            "name": "Pakiet oprogramowania",
+            "description": "Licencja"
+        },
+        "serviceLaunch": {
+            "name": "Uruchomienie usługi",
+            "description": "Jednorazowe uruchomienie"
+        },
+        "baseSupport": {
+            "name": "Podstawowe wsparcie",
+            "description": "Wliczone w plan subskrypcji"
+        },
+        "disclaimer": "Kupując, wyrażasz zgodę na natychmiastową dostawę treści cyfrowych i rezygnujesz z prawa do odstąpienia od umowy w ciągu 14 dni. Wszystkie ceny zawierają VAT. Twoja subskrypcja odnowi się automatycznie, chyba że zostanie anulowana co najmniej 24 godziny przed końcem bieżącego okresu rozliczeniowego."
+    },
+    "thankYou": {
+        "title": "Dziękujemy!",
+        "subtitle": "Twoje zamówienie zostało pomyślnie złożone",
+        "orderDetails": "Szczegóły zamówienia",
+        "orderNumber": "Numer zamówienia",
+        "date": "Data",
+        "total": "Suma",
+        "orderItems": "Zamówione produkty",
+        "whatsNext": "Co dalej?",
+        "checkEmail": "Sprawdź swoją skrzynkę",
+        "checkEmailDesc": "Wysłaliśmy e-mail z potwierdzeniem zawierający szczegóły zamówienia i paragon.",
+        "serviceActivation": "Aktywacja usługi",
+        "serviceActivationDesc": "Twoja usługa zostanie aktywowana w ciągu 24 godzin. Powiadomimy Cię, gdy będzie gotowa.",
+        "placeAnotherOrder": "Złóż kolejne zamówienie",
+        "downloadReceipt": "Pobierz paragon",
+        "contactSupport": "Masz pytania? Skontaktuj się z naszym zespołem wsparcia."
+    },
+    "validation": {
+        "required": "Wymagane",
+        "invalidEmail": "Nieprawidłowy adres e-mail.",
+        "onlyLetters": "Dozwolone są tylko litery.",
+        "invalidPhone": "Nieprawidłowy numer telefonu.",
+        "weakPassword": "Hasło jest za słabe.",
+        "passwordMismatch": "Hasła nie są zgodne.",
+        "invalidZipcode": "Nieprawidłowy format kodu pocztowego.",
+        "invalidAge": "Wiek musi być między 16 a 100.",
+        "invalidHouseNumber": "Numer domu nie może mieć więcej niż 4 cyfry.",
+        "invalidIban": "Nieprawidłowy format IBAN.",
+        "invalidBic": "Nieprawidłowy format BIC."
+    },
+    "errorBoundary": {
+        "title": "Coś poszło nie tak",
+        "message": "Przepraszamy, ale wystąpił nieoczekiwany błąd. Spróbuj odświeżyć stronę.",
+        "refresh": "Odśwież stronę"
+    },
+    "privacyPolicy": {
+        "content": "1. INFORMACJE, KTÓRE ZBIERAMY\nZbieramy informacje, które przekazujesz nam bezpośrednio, na przykład podczas tworzenia konta, dokonywania zakupu lub kontaktowania się z nami w celu uzyskania pomocy. Obejmują one:\n• Dane osobowe (imię, nazwisko, adres e-mail, numer telefonu)\n• Informacje o płatnościach (przetwarzane bezpiecznie przez naszych dostawców płatności)\n• Informacje adresowe do celów dostawy\n\n2. JAK WYKORZYSTUJEMY TWOJE DANE\nWykorzystujemy zebrane informacje do:\n• Przetwarzania zamówień i płatności\n• Wysyłania potwierdzeń zamówień i aktualizacji\n• Zapewnienia obsługi klienta\n• Ulepszania naszych usług\n\n3. OCHRONA DANYCH\nWdrażamy odpowiednie środki bezpieczeństwa w celu ochrony Twoich danych osobowych przed nieuprawnionym dostępem, zmianą lub zniszczeniem.\n\n4. TWOJE PRAWA\nMasz prawo do:\n• Dostępu do swoich danych osobowych\n• Poprawiania nieprawidłowych danych\n• Żądania usunięcia danych\n• Wycofania zgody w dowolnym momencie\n\n5. KONTAKT\nW przypadku pytań dotyczących niniejszej Polityki Prywatności prosimy o kontakt pod adresem kontakt@damianczerwinski.pl"
+    },
+    "termsOfService": {
+        "content": "1. AKCEPTACJA WARUNKÓW\nKorzystając z usług DC Platform, zgadzasz się przestrzegać niniejszego Regulaminu oraz wszystkich obowiązujących przepisów prawa.\n\n2. OPIS USŁUG\nDC Platform świadczy usługi cyfrowe i oprogramowanie w modelu subskrypcyjnym. Usługi obejmują dostęp do funkcji premium, pakietów oprogramowania i wsparcia technicznego.\n\n3. SUBSKRYPCJA I PŁATNOŚCI\n• Subskrypcje są rozliczane miesięcznie, chyba że określono inaczej\n• Płatności są przetwarzane automatycznie na początku każdego okresu rozliczeniowego\n• Wszystkie ceny zawierają obowiązujące podatki (VAT)\n• Zwroty podlegają naszej polityce zwrotów\n\n4. OBOWIĄZKI UŻYTKOWNIKA\nZgadzasz się:\n• Podawać prawdziwe informacje o koncie\n• Chronić swoje dane logowania\n• Korzystać z usług zgodnie z obowiązującym prawem\n• Nie udostępniać ani rozpowszechniać licencjonowanych treści\n\n5. WŁASNOŚĆ INTELEKTUALNA\nWszystkie treści, oprogramowanie i materiały dostarczane za pośrednictwem naszych usług pozostają własnością DC Platform lub jej licencjodawców.\n\n6. OGRANICZENIE ODPOWIEDZIALNOŚCI\nDC Platform nie ponosi odpowiedzialności za jakiekolwiek pośrednie, przypadkowe lub wynikowe szkody wynikające z korzystania z naszych usług.\n\n7. ROZWIĄZANIE UMOWY\nZastrzegamy sobie prawo do zawieszenia lub zamknięcia kont naruszających niniejszy regulamin.\n\n8. KONTAKT\nW przypadku pytań dotyczących Regulaminu prosimy o kontakt pod adresem kontakt@damianczerwinski.pl"
+    }
+}

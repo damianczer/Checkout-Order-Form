@@ -1,0 +1,124 @@
+{
+    "common": {
+        "back": "Back",
+        "next": "Next",
+        "buy": "Buy",
+        "loading": "Loading...",
+        "error": "An error occurred",
+        "required": "Required",
+        "free": "Free"
+    },
+    "header": {
+        "title": "DC Platform"
+    },
+    "footer": {
+        "copyright": "Copyright © Checkout Order Form",
+        "allRightsReserved": "All Rights Reserved.",
+        "createdBy": "Created by",
+        "privacyPolicy": "Privacy Policy",
+        "termsOfService": "Terms of Service"
+    },
+    "checkout": {
+        "title": "Checkout Order",
+        "steps": {
+            "personalData": "Personal Data",
+            "shippingAddress": "Shipping Address",
+            "paymentDetails": "Payment Details",
+            "summary": "Summary"
+        }
+    },
+    "personalData": {
+        "firstName": "First Name:",
+        "lastName": "Last Name:",
+        "gender": "Gender:",
+        "age": "Age:",
+        "email": "E-mail:",
+        "phoneNumber": "Phone Number:",
+        "createAccount": "I want to create an account.",
+        "password": "Password:",
+        "repeatPassword": "Repeat Password:",
+        "male": "Male",
+        "female": "Female"
+    },
+    "addressData": {
+        "zipcode": "Zipcode:",
+        "city": "City:",
+        "street": "Street:",
+        "houseNumber": "House Number:",
+        "country": "Country:",
+        "addressLine": "Address Line (optional):"
+    },
+    "paymentData": {
+        "bankAccountHolder": "Bank Account Holder:",
+        "iban": "IBAN:",
+        "bic": "BIC:",
+        "paymentDate": "Payment Date:"
+    },
+    "summary": {
+        "title": "Order Summary",
+        "captchaRequired": "Please complete the captcha verification to proceed."
+    },
+    "products": {
+        "orderSummary": "Order summary",
+        "total": "Total",
+        "free": "Free",
+        "dcPlatform": {
+            "name": "DC Platform (Premium+)",
+            "description": "Monthly subscription"
+        },
+        "softwarePackage": {
+            "name": "Software package",
+            "description": "License"
+        },
+        "serviceLaunch": {
+            "name": "Service launch",
+            "description": "One-time service start-up"
+        },
+        "baseSupport": {
+            "name": "Base Support",
+            "description": "Included in subscription plan"
+        },
+        "disclaimer": "By purchasing, you agree to immediate delivery of digital content and waive your right of withdrawal within 14 days. All prices include VAT. Your subscription will automatically renew unless canceled at least 24 hours before the end of the current billing period."
+    },
+    "thankYou": {
+        "title": "Thank You!",
+        "subtitle": "Your order has been successfully placed",
+        "orderDetails": "Order Details",
+        "orderNumber": "Order Number",
+        "date": "Date",
+        "total": "Total",
+        "orderItems": "Order Items",
+        "whatsNext": "What's Next?",
+        "checkEmail": "Check Your Email",
+        "checkEmailDesc": "We've sent a confirmation email with your order details and receipt.",
+        "serviceActivation": "Service Activation",
+        "serviceActivationDesc": "Your service will be activated within 24 hours. We'll notify you once it's ready.",
+        "placeAnotherOrder": "Place Another Order",
+        "downloadReceipt": "Download Receipt",
+        "contactSupport": "Questions? Contact our support team anytime."
+    },
+    "validation": {
+        "required": "Required",
+        "invalidEmail": "Invalid email address.",
+        "onlyLetters": "Only letters are allowed.",
+        "invalidPhone": "Invalid phone number.",
+        "weakPassword": "Password too weak.",
+        "passwordMismatch": "Passwords do not match.",
+        "invalidZipcode": "Invalid zipcode format.",
+        "invalidAge": "Age must be between 16 and 100.",
+        "invalidHouseNumber": "House number cannot be longer than 4 digits.",
+        "invalidIban": "Invalid IBAN format.",
+        "invalidBic": "Invalid BIC format."
+    },
+    "errorBoundary": {
+        "title": "Something went wrong",
+        "message": "We're sorry, but something unexpected happened. Please try refreshing the page.",
+        "refresh": "Refresh Page"
+    },
+    "privacyPolicy": {
+        "content": "1. INFORMATION WE COLLECT\nWe collect information you provide directly to us, such as when you create an account, make a purchase, or contact us for support. This includes:\n• Personal information (name, email address, phone number)\n• Payment information (processed securely through our payment providers)\n• Address information for delivery purposes\n\n2. HOW WE USE YOUR INFORMATION\nWe use the information we collect to:\n• Process your orders and payments\n• Send you order confirmations and updates\n• Provide customer support\n• Improve our services\n\n3. DATA PROTECTION\nWe implement appropriate security measures to protect your personal data against unauthorized access, alteration, or destruction.\n\n4. YOUR RIGHTS\nYou have the right to:\n• Access your personal data\n• Correct inaccurate data\n• Request deletion of your data\n• Withdraw consent at any time\n\n5. CONTACT US\nFor any questions regarding this Privacy Policy, please contact us at kontakt@damianczerwinski.pl"
+    },
+    "termsOfService": {
+        "content": "1. ACCEPTANCE OF TERMS\nBy accessing and using DC Platform services, you agree to be bound by these Terms of Service and all applicable laws and regulations.\n\n2. SERVICE DESCRIPTION\nDC Platform provides digital content and software services on a subscription basis. Services include access to premium features, software packages, and technical support.\n\n3. SUBSCRIPTION AND PAYMENTS\n• Subscriptions are billed monthly unless otherwise specified\n• Payments are processed automatically at the beginning of each billing cycle\n• All prices include applicable taxes (VAT)\n• Refunds are subject to our refund policy\n\n4. USER OBLIGATIONS\nYou agree to:\n• Provide accurate account information\n• Keep your login credentials secure\n• Use services in compliance with applicable laws\n• Not share or redistribute licensed content\n\n5. INTELLECTUAL PROPERTY\nAll content, software, and materials provided through our services remain the property of DC Platform or its licensors.\n\n6. LIMITATION OF LIABILITY\nDC Platform shall not be liable for any indirect, incidental, or consequential damages arising from the use of our services.\n\n7. TERMINATION\nWe reserve the right to suspend or terminate accounts that violate these terms.\n\n8. CONTACT\nFor questions about these Terms, contact us at kontakt@damianczerwinski.pl"
+    }
+}

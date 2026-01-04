@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { TextField as MuiTextField, InputAdornment } from '@mui/material';
 import InputMask from 'react-input-mask';
 
-const Iban = ({ input, meta: { touched, error }, ...custom }) => (
+const Iban = memo(({ input, meta: { touched, error }, ...custom }) => (
   <InputMask
     {...input}
     mask="99 9999 9999 9999 9999 9999 9999"
@@ -22,6 +22,8 @@ const Iban = ({ input, meta: { touched, error }, ...custom }) => (
       />
     )}
   </InputMask>
-);
+));
+
+Iban.displayName = 'Iban';
 
 export default Iban;

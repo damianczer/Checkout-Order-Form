@@ -1,14 +1,18 @@
-import React, { useEffect } from 'react';
+import React, { memo, useEffect, useCallback } from 'react';
 import { TextField } from '@mui/material';
 import { DatePicker as MuiDatePicker } from '@mui/x-date-pickers';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { LocalizationProvider } from '@mui/x-date-pickers';
 
-const DatePicker = ({ input, meta: { touched, error }, ...custom }) => {
+const DatePicker = memo(({ input, meta: { touched, error }, ...custom }) => {
   useEffect(() => {
     if (!input.value) {
       input.onChange(new Date());
     }
+  }, [input]);
+
+  const handleChange = useCallback((date) => {
+    input.onChange(date);
   }, [input]);
 
   return (
@@ -17,7 +21,7 @@ const DatePicker = ({ input, meta: { touched, error }, ...custom }) => {
         {...custom}
         value={input.value || null}
         inputFormat="dd.MM.yyyy"
-        onChange={(date) => input.onChange(date)}
+        onChange={handleChange}
         renderInput={(params) => (
           <TextField
             {...params}
@@ -39,6 +43,8 @@ const DatePicker = ({ input, meta: { touched, error }, ...custom }) => {
       />
     </LocalizationProvider>
   );
-};
+});
+
+DatePicker.displayName = 'DatePicker';
 
 export default DatePicker;

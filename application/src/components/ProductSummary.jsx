@@ -1,34 +1,72 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { Typography, List, ListItem, ListItemText, Paper } from '@mui/material';
+import { useTranslation } from 'react-i18next';
 import Product from './Product';
+import { PRODUCTS, TOTAL_FORMATTED } from '../constants/products';
 
-const ProductSummary = () => (
-    <Paper
-        variant="outlined"
-        sx={{
-            my: { xs: 0, md: 0 },
-            p: { xs: 2, md: 3 },
-            height: { xs: 'auto', lg: '100%' },
-            backgroundColor: '#f7f9ff',
-            m: '30px'
-        }}
-    >
-        <Typography variant="h5" gutterBottom>
-            Order summary
-        </Typography>
-        <List disablePadding>
-            <Product name="DC Platform (Premium+)" desc="Monthly subscription" price="$14.99" />
-            <Product name="Software package" desc="License" price="$9.99" />
-            <Product name="Service launch" desc="One-time service start-up" price="$4.99" />
-            <Product name="Base Support" desc="Included in subscription plan" price="Free" />
-            <ListItem sx={{ py: 1, px: 0, mt: 3 }}>
-                <ListItemText primary="Total" />
-                <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>
-                    $29.97
-                </Typography>
-            </ListItem>
-        </List>
-    </Paper>
-);
+const ProductSummary = () => {
+    const { t } = useTranslation();
 
-export default ProductSummary;
+    return (
+        <Paper
+            variant="outlined"
+            sx={{
+                my: { xs: 0, md: 0 },
+                p: { xs: 2, md: 3 },
+                height: { xs: 'auto', lg: '100%' },
+                backgroundColor: 'background.blueLight',
+                m: '30px',
+                display: 'flex',
+                flexDirection: 'column',
+                '& .MuiTypography-h5': {
+                    fontSize: { xs: '1.5rem', lg: '1.2rem', xl: '1.5rem' }
+                },
+                '& .MuiListItemText-primary': {
+                    fontSize: { xs: '1rem', lg: '0.8rem', xl: '1rem' }
+                },
+                '& .MuiListItemText-secondary': {
+                    fontSize: { xs: '0.875rem', lg: '0.7rem', xl: '0.875rem' }
+                },
+                '& .MuiTypography-body2': {
+                    fontSize: { xs: '0.875rem', lg: '0.75rem', xl: '0.875rem' }
+                }
+            }}
+        >
+            <Typography variant="h5" gutterBottom>
+                {t('products.orderSummary')}
+            </Typography>
+            <List disablePadding>
+                {PRODUCTS.map((product) => (
+                    <Product
+                        key={product.id}
+                        name={t(product.nameKey)}
+                        desc={t(product.descKey)}
+                        price={product.isFree ? t('common.free') : product.priceFormatted}
+                        isFree={product.isFree}
+                    />
+                ))}
+                <ListItem sx={{ py: 1, px: 0, mt: 3 }}>
+                    <ListItemText primary={t('products.total')} />
+                    <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>
+                        {TOTAL_FORMATTED}
+                    </Typography>
+                </ListItem>
+            </List>
+            <Typography
+                variant="caption"
+                sx={{
+                    display: 'block',
+                    mt: 'auto',
+                    pt: 3,
+                    color: 'text.secondary',
+                    fontSize: { xs: '0.7rem', lg: '0.6rem', xl: '0.7rem' },
+                    lineHeight: 1.4
+                }}
+            >
+                * {t('products.disclaimer')}
+            </Typography>
+        </Paper>
+    );
+};
+
+export default memo(ProductSummary);

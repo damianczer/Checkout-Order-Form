@@ -1,112 +1,90 @@
-import { memo } from 'react';
+import { memo, useCallback } from 'react';
 import { ListItem, ListItemText, Grid, Box } from '@mui/material';
 import HCaptcha from '@hcaptcha/react-hcaptcha';
 import { reduxForm } from 'redux-form';
+import { useTranslation } from 'react-i18next';
 import Container from '../controls/Container';
 
-const CaptchaField = ({ input, meta: { touched, error }, change }) => {
-  const handleVerify = (token) => {
-    input.onChange(token);
-  };
-
-  const handleExpire = () => {
-    input.onChange(null);
-  };
-
-  return (
-    <div>
-      <HCaptcha 
-        sitekey="473e87ac-ba4c-4816-a922-e6ae435c40c6" 
-        onVerify={handleVerify}
-        onExpire={handleExpire}
-      />
-      {touched && error && (
-        <div style={{ color: 'red', fontSize: '12px', marginTop: '8px' }}>
-          {error}
-        </div>
-      )}
-    </div>
-  );
-};
-
 const Summary = ({ formData, change }) => {
-  const handleCaptchaVerify = (token) => {
-    change('captchaToken', token);
-  };
+  const { t } = useTranslation();
 
-  const handleCaptchaExpire = () => {
+  const handleCaptchaVerify = useCallback((token) => {
+    change('captchaToken', token);
+  }, [change]);
+
+  const handleCaptchaExpire = useCallback(() => {
     change('captchaToken', null);
-  };
+  }, [change]);
 
   return (
     <Container>
       <Grid container spacing={2}>
         <Grid item xs={12} sm={6} md={3}>
           <ListItem>
-            <ListItemText primary="First Name:" secondary={formData.firstName} />
+            <ListItemText primary={t('personalData.firstName')} secondary={formData.firstName} />
           </ListItem>
           <ListItem>
-            <ListItemText primary="Last Name:" secondary={formData.lastName} />
+            <ListItemText primary={t('personalData.lastName')} secondary={formData.lastName} />
           </ListItem>
           <ListItem>
-            <ListItemText primary="Gender:" secondary={formData.gender} />
+            <ListItemText primary={t('personalData.gender')} secondary={formData.gender} />
           </ListItem>
           <ListItem>
-            <ListItemText primary="Age:" secondary={formData.age} />
-          </ListItem>
-        </Grid>
-        <Grid item xs={12} sm={6} md={3}>
-          <ListItem>
-            <ListItemText primary="E-mail:" secondary={formData.email} />
-          </ListItem>
-          <ListItem>
-            <ListItemText primary="Phone Number:" secondary={formData.phoneNumber} />
-          </ListItem>
-          <ListItem>
-            <ListItemText primary="Zipcode:" secondary={formData.zipcode} />
-          </ListItem>
-          <ListItem>
-            <ListItemText primary="City:" secondary={formData.city} />
+            <ListItemText primary={t('personalData.age')} secondary={formData.age} />
           </ListItem>
         </Grid>
         <Grid item xs={12} sm={6} md={3}>
           <ListItem>
-            <ListItemText primary="Street:" secondary={formData.street} />
+            <ListItemText primary={t('personalData.email')} secondary={formData.email} />
           </ListItem>
           <ListItem>
-            <ListItemText primary="House Number:" secondary={formData.houseNumber} />
+            <ListItemText primary={t('personalData.phoneNumber')} secondary={formData.phoneNumber} />
           </ListItem>
           <ListItem>
-            <ListItemText primary="Country:" secondary={formData.country} />
+            <ListItemText primary={t('addressData.zipcode')} secondary={formData.zipcode} />
           </ListItem>
           <ListItem>
-            <ListItemText primary="Address Line:" secondary={formData.addressLine} />
+            <ListItemText primary={t('addressData.city')} secondary={formData.city} />
           </ListItem>
         </Grid>
         <Grid item xs={12} sm={6} md={3}>
           <ListItem>
-            <ListItemText primary="Bank Account Holder:" secondary={formData.bankAccountHolder} />
+            <ListItemText primary={t('addressData.street')} secondary={formData.street} />
           </ListItem>
           <ListItem>
-            <ListItemText primary="IBAN:" secondary={formData.iban} />
+            <ListItemText primary={t('addressData.houseNumber')} secondary={formData.houseNumber} />
           </ListItem>
           <ListItem>
-            <ListItemText primary="BIC:" secondary={formData.bic} />
+            <ListItemText primary={t('addressData.country')} secondary={formData.country} />
           </ListItem>
           <ListItem>
-            <ListItemText primary="Payment Date:" secondary={formData.paymentDate ? formData.paymentDate.toLocaleDateString() : ''} />
+            <ListItemText primary={t('addressData.addressLine')} secondary={formData.addressLine} />
+          </ListItem>
+        </Grid>
+        <Grid item xs={12} sm={6} md={3}>
+          <ListItem>
+            <ListItemText primary={t('paymentData.bankAccountHolder')} secondary={formData.bankAccountHolder} />
+          </ListItem>
+          <ListItem>
+            <ListItemText primary={t('paymentData.iban')} secondary={formData.iban} />
+          </ListItem>
+          <ListItem>
+            <ListItemText primary={t('paymentData.bic')} secondary={formData.bic} />
+          </ListItem>
+          <ListItem>
+            <ListItemText primary={t('paymentData.paymentDate')} secondary={formData.paymentDate ? formData.paymentDate.toLocaleDateString() : ''} />
           </ListItem>
         </Grid>
       </Grid>
       <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', mt: 3, width: '100%' }}>
-        <HCaptcha 
-          sitekey="473e87ac-ba4c-4816-a922-e6ae435c40c6" 
+        <HCaptcha
+          sitekey="473e87ac-ba4c-4816-a922-e6ae435c40c6"
           onVerify={handleCaptchaVerify}
           onExpire={handleCaptchaExpire}
         />
         {!formData.captchaToken && (
           <div style={{ color: 'red', fontSize: '12px', marginTop: '8px', textAlign: 'center' }}>
-            Please complete the captcha verification to proceed.
+            {t('summary.captchaRequired')}
           </div>
         )}
       </Box>

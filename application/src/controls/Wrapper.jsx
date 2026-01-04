@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { Grid } from '@mui/material';
 
-const Wrapper = ({ children }) => (
+const Wrapper = memo(({ children }) => (
   <Grid item xs={12} sm={6}>
     {children}
   </Grid>
-);
+));
+
+Wrapper.displayName = 'Wrapper';
 
 export default Wrapper;
