@@ -1,6 +1,7 @@
 import React, { memo } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { Grid, MenuItem } from '@mui/material';
+import { useTranslation } from 'react-i18next';
 import Text from '../controls/Text';
 import Select from '../controls/Select';
 import Checkbox from '../controls/Checkbox';
@@ -19,10 +20,12 @@ import {
 } from '../validation';
 
 const PersonalData = ({ formData }) => {
+  const { t } = useTranslation();
+
   return (
     <Container>
       <Wrapper>
-        <Label>First Name: *</Label>
+        <Label>{t('personalData.firstName')} *</Label>
         <Field
           name="firstName"
           component={Text}
@@ -30,7 +33,7 @@ const PersonalData = ({ formData }) => {
         />
       </Wrapper>
       <Wrapper>
-        <Label>Last Name: *</Label>
+        <Label>{t('personalData.lastName')} *</Label>
         <Field
           name="lastName"
           component={Text}
@@ -38,18 +41,18 @@ const PersonalData = ({ formData }) => {
         />
       </Wrapper>
       <Wrapper>
-        <Label>Gender: *</Label>
+        <Label>{t('personalData.gender')} *</Label>
         <Field
           name="gender"
           component={Select}
           validate={[required]}
         >
-          <MenuItem value="male">Male</MenuItem>
-          <MenuItem value="female">Female</MenuItem>
+          <MenuItem value="male">{t('personalData.male')}</MenuItem>
+          <MenuItem value="female">{t('personalData.female')}</MenuItem>
         </Field>
       </Wrapper>
       <Wrapper>
-        <Label>Age: *</Label>
+        <Label>{t('personalData.age')} *</Label>
         <Field
           name="age"
           component={Text}
@@ -58,7 +61,7 @@ const PersonalData = ({ formData }) => {
         />
       </Wrapper>
       <Wrapper>
-        <Label>E-mail: *</Label>
+        <Label>{t('personalData.email')} *</Label>
         <Field
           name="email"
           component={Text}
@@ -66,7 +69,7 @@ const PersonalData = ({ formData }) => {
         />
       </Wrapper>
       <Wrapper>
-        <Label>Phone Number: *</Label>
+        <Label>{t('personalData.phoneNumber')} *</Label>
         <Field
           name="phoneNumber"
           component={Phone}
@@ -78,13 +81,13 @@ const PersonalData = ({ formData }) => {
           name="createAccount"
           component={Checkbox}
           type="checkbox"
-          label="I want to create an account."
+          label={t('personalData.createAccount')}
         />
       </Grid>
       {formData.createAccount && (
         <>
           <Wrapper>
-            <Label>Password: *</Label>
+            <Label>{t('personalData.password')} *</Label>
             <Field
               name="password"
               component={Text}
@@ -93,7 +96,7 @@ const PersonalData = ({ formData }) => {
             />
           </Wrapper>
           <Wrapper>
-            <Label>Repeat Password: *</Label>
+            <Label>{t('personalData.repeatPassword')} *</Label>
             <Field
               name="repeatPassword"
               component={Text}

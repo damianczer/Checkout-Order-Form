@@ -1,5 +1,6 @@
 import React, { memo } from 'react';
 import { Field, reduxForm } from 'redux-form';
+import { useTranslation } from 'react-i18next';
 import Container from '../controls/Container';
 import Text from '../controls/Text';
 import Wrapper from '../controls/Wrapper';
@@ -10,10 +11,12 @@ import DatePicker from '../controls/DatePicker';
 import { required, iban, bic, onlyLetters } from '../validation';
 
 const PaymentData = () => {
+  const { t } = useTranslation();
+
   return (
     <Container>
       <Wrapper>
-        <Label>Bank Account Holder: *</Label>
+        <Label>{t('paymentData.bankAccountHolder')} *</Label>
         <Field
           name="bankAccountHolder"
           component={Text}
@@ -21,7 +24,7 @@ const PaymentData = () => {
         />
       </Wrapper>
       <Wrapper>
-        <Label>IBAN: *</Label>
+        <Label>{t('paymentData.iban')} *</Label>
         <Field
           name="iban"
           component={Iban}
@@ -29,7 +32,7 @@ const PaymentData = () => {
         />
       </Wrapper>
       <Wrapper>
-        <Label>BIC: *</Label>
+        <Label>{t('paymentData.bic')} *</Label>
         <Field
           name="bic"
           component={Bic}
@@ -38,7 +41,7 @@ const PaymentData = () => {
         />
       </Wrapper>
       <Wrapper>
-        <Label>Payment Date: *</Label>
+        <Label>{t('paymentData.paymentDate')} *</Label>
         <Field
           name="paymentDate"
           component={DatePicker}

@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { memo, useEffect, useState, useMemo } from 'react';
 import { TextField, MenuItem } from '@mui/material';
 
-const Country = ({ input, meta: { touched, error } }) => {
+const Country = memo(({ input, meta: { touched, error } }) => {
   const [countries, setCountries] = useState([]);
 
   useEffect(() => {
@@ -14,13 +14,11 @@ const Country = ({ input, meta: { touched, error } }) => {
       })
       .then(data => {
         if (Array.isArray(data)) {
-          const countryList = data.map(country => {
-            return {
-              name: country.name?.common || country.name,
-              code: country.cca2 || country.code
-            };
-          }).filter(country => country.name && country.code);
-          
+          const countryList = data.map(country => ({
+            name: country.name?.common || country.name,
+            code: country.cca2 || country.code
+          })).filter(country => country.name && country.code);
+
           setCountries(countryList);
         }
       })
@@ -28,6 +26,13 @@ const Country = ({ input, meta: { touched, error } }) => {
         console.error('Error fetching countries:', error);
       });
   }, []);
+
+  const menuItems = useMemo(() =>
+    countries.map(country => (
+      <MenuItem key={country.code} value={country.name}>
+        {country.name}
+      </MenuItem>
+    )), [countries]);
 
   return (
     <TextField
@@ -50,13 +55,11 @@ const Country = ({ input, meta: { touched, error } }) => {
         },
       }}
     >
-      {countries.map(country => (
-        <MenuItem key={country.code} value={country.name}>
-          {country.name}
-        </MenuItem>
-      ))}
+      {menuItems}
     </TextField>
   );
-};
+});
+
+Country.displayName = 'Country';
 
 export default Country;

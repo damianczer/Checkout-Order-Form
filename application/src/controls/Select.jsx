@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { TextField } from '@mui/material';
 
-const Select = ({ input, meta: { touched, error }, children, ...custom }) => (
+const Select = memo(({ input, meta: { touched, error }, children, ...custom }) => (
     <TextField
         select
         {...input}
@@ -14,6 +14,8 @@ const Select = ({ input, meta: { touched, error }, children, ...custom }) => (
     >
         {children}
     </TextField>
-);
+));
+
+Select.displayName = 'Select';
 
 export default Select;

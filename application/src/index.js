@@ -3,13 +3,20 @@ import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
 import App from './App';
 import store from './store';
+import { AppProvider } from './context/AppContext';
+import ErrorBoundary from './components/ErrorBoundary';
+import './i18n';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
-  <Provider store={store}>
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>
-  </Provider>
+  <React.StrictMode>
+    <Provider store={store}>
+      <ErrorBoundary>
+        <AppProvider>
+          <App />
+        </AppProvider>
+      </ErrorBoundary>
+    </Provider>
+  </React.StrictMode>
 );

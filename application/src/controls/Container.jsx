@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { Box, Grid } from '@mui/material';
 
-const Container = ({ children }) => (
+const Container = memo(({ children }) => (
   <Box sx={{
     display: 'flex',
     justifyContent: 'center',
@@ -21,6 +21,8 @@ const Container = ({ children }) => (
       {children}
     </Grid>
   </Box>
-);
+));
+
+Container.displayName = 'Container';
 
 export default Container;

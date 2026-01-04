@@ -1,30 +1,27 @@
-import React, { useState, memo } from 'react';
+import React, { useState, memo, useCallback, useMemo } from 'react';
 import { reduxForm, touch } from 'redux-form';
 import { useSelector } from 'react-redux';
 import { createSelector } from 'reselect';
 import CssBaseline from '@mui/material/CssBaseline';
-import AppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Paper from '@mui/material/Paper';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Stepper from '@mui/material/Stepper';
 import Step from '@mui/material/Step';
 import StepLabel from '@mui/material/StepLabel';
 import Button from '@mui/material/Button';
+import { useTranslation } from 'react-i18next';
+import Header from './components/Header';
+import Footer from './components/Footer';
 import PersonalData from './components/PersonalData';
-import Copyright from './components/Copyright';
 import ProductSummary from './components/ProductSummary';
 import AddressData from './components/AddressData';
 import PaymentData from './components/PaymentData';
 import Summary from './components/Summary';
 import ThankYouPage from './components/ThankYouPage';
+import { CHECKOUT_STEPS, FORM_FIELDS } from './constants/config';
 import './App.css';
-
-const steps = ['Personal Data', 'Shipping Address', 'Payment Details', 'Summary'];
 
 const selectFormData = createSelector(
   state => state.form.contactForm?.values,
@@ -35,25 +32,22 @@ const App = ({ handleSubmit, valid, dispatch }) => {
   const [activeStep, setActiveStep] = useState(0);
   const [orderCompleted, setOrderCompleted] = useState(false);
   const formData = useSelector(selectFormData);
+  const { t } = useTranslation();
 
-  const allFields = [
-    'firstName', 'lastName', 'gender', 'age', 'email', 'phoneNumber',
-    'zipcode', 'city', 'street', 'houseNumber', 'country', 'addressLine',
-    'bankAccountHolder', 'iban', 'bic', 'paymentDate', 'password', 'repeatPassword',
-    'captchaToken'
-  ];
+  const steps = useMemo(() => CHECKOUT_STEPS.map(step => t(`checkout.steps.${step.key}`)), [t]);
 
-  const submit = values => {
-  };
+  const submit = useCallback((values) => {
+    console.log('Form submitted:', values);
+  }, []);
 
-  const handleNext = () => {
-    dispatch(touch('contactForm', ...allFields));
-    
+  const handleNext = useCallback(() => {
+    dispatch(touch('contactForm', ...FORM_FIELDS));
+
     setTimeout(() => {
       if (activeStep === steps.length - 1 && !formData.captchaToken) {
         return;
       }
-      
+
       if (valid && (activeStep < steps.length - 1 || formData.captchaToken)) {
         if (activeStep === steps.length - 1) {
           setOrderCompleted(true);
@@ -62,13 +56,13 @@ const App = ({ handleSubmit, valid, dispatch }) => {
         }
       }
     }, 100);
-  };
+  }, [activeStep, dispatch, formData.captchaToken, steps.length, valid]);
 
-  const handleBack = () => {
+  const handleBack = useCallback(() => {
     setActiveStep(prevActiveStep => prevActiveStep - 1);
-  };
+  }, []);
 
-  const getStepContent = step => {
+  const getStepContent = useCallback((step) => {
     switch (step) {
       case 0:
         return <PersonalData formData={formData} />;
@@ -79,9 +73,9 @@ const App = ({ handleSubmit, valid, dispatch }) => {
       case 3:
         return <Summary formData={formData} />;
       default:
-        return <Typography variant="h6" align="center">Unknown step</Typography>;
+        return <Typography variant="h6" align="center">{t('common.error')}</Typography>;
     }
-  };
+  }, [formData, t]);
 
   if (orderCompleted) {
     return <ThankYouPage />;
@@ -90,37 +84,8 @@ const App = ({ handleSubmit, valid, dispatch }) => {
   return (
     <>
       <CssBaseline />
-      <AppBar
-        position="absolute"
-        color="default"
-        elevation={0}
-        sx={{ position: 'relative' }}
-      >
-        <Toolbar>
-          <Typography variant="h6" color="inherit" noWrap>
-            DC Platform
-          </Typography>
-          <Box sx={{ marginLeft: 'auto', display: 'flex', gap: 2 }}>
-            <a
-              href="https://www.linkedin.com/in/daczerw"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ color: '#0077b5' }}
-            >
-              <FontAwesomeIcon icon={faLinkedin} size="lg" />
-            </a>
-            <a
-              href="https://github.com/damianczer"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ color: '#333' }}
-            >
-              <FontAwesomeIcon icon={faGithub} size="lg" />
-            </a>
-          </Box>
-        </Toolbar>
-      </AppBar>
-      <Grid container spacing={3} sx={{ mt: 1, height: '85vh', px: '0px' }}>
+      <Header />
+      <Grid container spacing={3} sx={{ mt: 1, height: { xs: 'auto', lg: 'calc(100vh - 175px)' }, px: '0px', mb: { xs: '220px', sm: '100px', md: '110px', lg: '95px' } }}>
         <Grid item xs={12} lg={3} sx={{ height: { xs: 'auto', lg: '100%' } }}>
           <ProductSummary />
         </Grid>
@@ -133,48 +98,74 @@ const App = ({ handleSubmit, valid, dispatch }) => {
               width: { xs: 'calc(100% - 60px)', lg: 'calc(100% - 5px)' },
               ml: { xs: '30px', lg: '-25px' },
               mr: { xs: '30px', lg: '30px' },
-              mb: '30px'
+              mb: '30px',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center',
+              alignItems: 'center',
             }}
           >
-            <Typography variant="h5" align="center">
-              Checkout Order
-            </Typography>
-            <Stepper activeStep={activeStep} sx={{ flexWrap: 'wrap', width: '60%', margin: '0 auto', pt: 3, pb: 5 }}>
-              {steps.map(label => (
-                <Step key={label} sx={
-                  {
-                    flexWrap: 'wrap',
-                    mt: 1,
-                    '& .MuiStepLabel-root .Mui-completed': { color: 'green' }
-                  }}>
-                  <StepLabel sx={{ color: 'grey' }}>{label}</StepLabel>
-                </Step>
-              ))}
-            </Stepper>
-            <form onSubmit={handleSubmit(submit)} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', margin: '0 auto' }}>
-              {getStepContent(activeStep)}
-              <Box sx={{ display: 'flex', justifyContent: 'space-between', mt: 6 }}>
-                <Button
-                  variant="contained"
-                  disabled={activeStep === 0}
-                  onClick={handleBack}
-                  sx={{ mx: 1, width: '100px' }}
-                >
-                  Back
-                </Button>
-                <Button
-                  variant="contained"
-                  onClick={handleNext}
-                  sx={{ mx: 1, width: '100px' }}
-                >
-                  {activeStep === steps.length - 1 ? 'Buy' : 'Next'}
-                </Button>
-              </Box>
-            </form>
+            <Box sx={{ width: '100%' }}>
+              <Typography variant="h5" align="center">
+                {t('checkout.title')}
+              </Typography>
+              <Stepper
+                activeStep={activeStep}
+                sx={{
+                  flexDirection: { xs: 'column', md: 'row' },
+                  alignItems: { xs: 'center', md: 'center' },
+                  width: '100%',
+                  maxWidth: 700,
+                  margin: '0 auto',
+                  pt: 3,
+                  pb: 5,
+                  '& .MuiStepConnector-root': {
+                    display: { xs: 'none', md: 'block' },
+                    top: '50%',
+                    transform: 'translateY(-50%)'
+                  },
+                  '& .MuiStepConnector-line': {
+                    borderTopWidth: 2
+                  },
+                  '& .MuiStep-root': {
+                    px: { xs: 0, md: 2 },
+                    py: { xs: 0.5, md: 0 }
+                  }
+                }}>
+                {steps.map((label, index) => (
+                  <Step key={index} sx={
+                    {
+                      '& .MuiStepLabel-root .Mui-completed': { color: 'green' }
+                    }}>
+                    <StepLabel sx={{ color: 'grey' }}>{label}</StepLabel>
+                  </Step>
+                ))}
+              </Stepper>
+              <form onSubmit={handleSubmit(submit)} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', margin: '0 auto' }}>
+                {getStepContent(activeStep)}
+                <Box sx={{ display: 'flex', justifyContent: 'space-between', mt: 6 }}>
+                  <Button
+                    variant="contained"
+                    disabled={activeStep === 0}
+                    onClick={handleBack}
+                    sx={{ mx: 1, width: '100px' }}
+                  >
+                    {t('common.back')}
+                  </Button>
+                  <Button
+                    variant="contained"
+                    onClick={handleNext}
+                    sx={{ mx: 1, width: '100px' }}
+                  >
+                    {activeStep === steps.length - 1 ? t('common.buy') : t('common.next')}
+                  </Button>
+                </Box>
+              </form>
+            </Box>
           </Paper>
         </Grid>
       </Grid>
-      <Copyright />
+      <Footer />
     </>
   );
 };

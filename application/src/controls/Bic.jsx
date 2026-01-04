@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { TextField as MuiTextField } from '@mui/material';
 import InputMask from 'react-input-mask';
 
-const Bic = ({ input, meta: { touched, error }, ...custom }) => (
+const Bic = memo(({ input, meta: { touched, error }, ...custom }) => (
   <InputMask
     {...input}
     mask="aaaaaa99"
@@ -22,6 +22,8 @@ const Bic = ({ input, meta: { touched, error }, ...custom }) => (
       />
     )}
   </InputMask>
-);
+));
+
+Bic.displayName = 'Bic';
 
 export default Bic;
