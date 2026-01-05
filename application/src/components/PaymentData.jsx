@@ -16,7 +16,7 @@ const PaymentData = () => {
   return (
     <Container>
       <Wrapper>
-        <Label>{t('paymentData.bankAccountHolder')} *</Label>
+        <Label htmlFor="bankAccountHolder">{t('paymentData.bankAccountHolder')} *</Label>
         <Field
           name="bankAccountHolder"
           component={Text}
@@ -24,7 +24,7 @@ const PaymentData = () => {
         />
       </Wrapper>
       <Wrapper>
-        <Label>{t('paymentData.iban')} *</Label>
+        <Label htmlFor="iban">{t('paymentData.iban')} *</Label>
         <Field
           name="iban"
           component={Iban}
@@ -32,7 +32,7 @@ const PaymentData = () => {
         />
       </Wrapper>
       <Wrapper>
-        <Label>{t('paymentData.bic')} *</Label>
+        <Label htmlFor="bic">{t('paymentData.bic')} *</Label>
         <Field
           name="bic"
           component={Bic}
@@ -41,7 +41,7 @@ const PaymentData = () => {
         />
       </Wrapper>
       <Wrapper>
-        <Label>{t('paymentData.paymentDate')} *</Label>
+        <Label htmlFor="paymentDate">{t('paymentData.paymentDate')} *</Label>
         <Field
           name="paymentDate"
           component={DatePicker}

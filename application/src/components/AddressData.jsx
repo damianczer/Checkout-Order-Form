@@ -15,7 +15,7 @@ const AddressData = () => {
   return (
     <Container>
       <Wrapper>
-        <Label>{t('addressData.zipcode')} *</Label>
+        <Label htmlFor="zipcode">{t('addressData.zipcode')} *</Label>
         <Field
           name="zipcode"
           component={Zipcode}
@@ -23,7 +23,7 @@ const AddressData = () => {
         />
       </Wrapper>
       <Wrapper>
-        <Label>{t('addressData.city')} *</Label>
+        <Label htmlFor="city">{t('addressData.city')} *</Label>
         <Field
           name="city"
           component={Text}
@@ -31,7 +31,7 @@ const AddressData = () => {
         />
       </Wrapper>
       <Wrapper>
-        <Label>{t('addressData.street')} *</Label>
+        <Label htmlFor="street">{t('addressData.street')} *</Label>
         <Field
           name="street"
           component={Text}
@@ -39,7 +39,7 @@ const AddressData = () => {
         />
       </Wrapper>
       <Wrapper>
-        <Label>{t('addressData.houseNumber')} *</Label>
+        <Label htmlFor="houseNumber">{t('addressData.houseNumber')} *</Label>
         <Field
           name="houseNumber"
           type="number"
@@ -48,7 +48,7 @@ const AddressData = () => {
         />
       </Wrapper>
       <Wrapper>
-        <Label>{t('addressData.country')} *</Label>
+        <Label htmlFor="country">{t('addressData.country')} *</Label>
         <Field
           name="country"
           component={Country}
@@ -56,7 +56,7 @@ const AddressData = () => {
         />
       </Wrapper>
       <Wrapper>
-        <Label>{t('addressData.addressLine')}</Label>
+        <Label htmlFor="addressLine">{t('addressData.addressLine')}</Label>
         <Field
           name="addressLine"
           component={Text}

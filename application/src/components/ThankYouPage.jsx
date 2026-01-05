@@ -38,16 +38,18 @@ const ThankYouPage = () => {
       display: 'flex',
       flexDirection: 'column'
     }}>
-      <Box sx={{
-        background: isDarkMode
-          ? 'linear-gradient(135deg, #2d4a6f 0%, #3d5a80 100%)'
-          : 'linear-gradient(135deg, #1976d2 0%, #42a5f5 100%)',
-        color: '#fff',
-        py: { xs: 4, md: 6 },
-        px: 2,
-        textAlign: 'center'
-      }}>
-        <CheckIcon sx={{ fontSize: { xs: 60, md: 80 }, mb: 2 }} />
+      <Box
+        component="header"
+        sx={{
+          background: isDarkMode
+            ? 'linear-gradient(135deg, #2d4a6f 0%, #3d5a80 100%)'
+            : 'linear-gradient(135deg, #1976d2 0%, #42a5f5 100%)',
+          color: '#fff',
+          py: { xs: 4, md: 6 },
+          px: 2,
+          textAlign: 'center'
+        }}>
+        <CheckIcon sx={{ fontSize: { xs: 60, md: 80 }, mb: 2 }} aria-hidden="true" />
         <Typography variant="h3" component="h1" sx={{
           fontWeight: 'bold',
           mb: 1,
@@ -55,7 +57,7 @@ const ThankYouPage = () => {
         }}>
           {t('thankYou.title')}
         </Typography>
-        <Typography variant="h6" sx={{
+        <Typography variant="h6" component="p" sx={{
           opacity: 0.9,
           fontSize: { xs: '0.9rem', md: '1.25rem' }
         }}>
@@ -77,7 +79,7 @@ const ThankYouPage = () => {
       }}>
         <Box sx={{ flex: 1, minWidth: 0 }}>
           <Box sx={{ mb: { xs: 3, md: 4 } }}>
-            <Typography variant="h5" sx={{
+            <Typography variant="h5" component="h2" sx={{
               fontWeight: 'bold',
               mb: 2,
               color: 'text.primary',
@@ -105,7 +107,7 @@ const ThankYouPage = () => {
               <Typography variant="body1" color="text.secondary" sx={{ fontSize: { xs: '0.875rem', md: '1rem' } }}>
                 {t('thankYou.total')}
               </Typography>
-              <Typography variant="h6" sx={{ color: 'primary.main', fontWeight: 'bold', fontSize: { xs: '1.1rem', md: '1.25rem' } }}>
+              <Typography variant="h6" component="span" sx={{ color: 'primary.main', fontWeight: 'bold', fontSize: { xs: '1.1rem', md: '1.25rem' } }}>
                 {TOTAL_FORMATTED}
               </Typography>
             </Box>
@@ -113,7 +115,7 @@ const ThankYouPage = () => {
 
           <Divider sx={{ my: { xs: 2, md: 3 } }} />
 
-          <Typography variant="h5" sx={{
+          <Typography variant="h5" component="h2" sx={{
             fontWeight: 'bold',
             mb: 2,
             color: 'text.primary',
@@ -149,7 +151,7 @@ const ThankYouPage = () => {
           borderRadius: 2,
           p: { xs: 2, sm: 3, md: 4 }
         }}>
-          <Typography variant="h5" sx={{
+          <Typography variant="h5" component="h2" sx={{
             fontWeight: 'bold',
             mb: { xs: 2, md: 3 },
             color: 'text.primary',
@@ -159,9 +161,9 @@ const ThankYouPage = () => {
           </Typography>
 
           <Box sx={{ display: 'flex', alignItems: 'flex-start', mb: { xs: 2, md: 3 } }}>
-            <EmailIcon sx={{ fontSize: { xs: 32, md: 40 }, color: 'primary.main', mr: 2, flexShrink: 0 }} />
+            <EmailIcon sx={{ fontSize: { xs: 32, md: 40 }, color: 'primary.main', mr: 2, flexShrink: 0 }} aria-hidden="true" />
             <Box>
-              <Typography variant="h6" sx={{ fontWeight: 'bold', fontSize: { xs: '1rem', md: '1.25rem' }, color: 'text.primary' }}>
+              <Typography variant="h6" component="h3" sx={{ fontWeight: 'bold', fontSize: { xs: '1rem', md: '1.25rem' }, color: 'text.primary' }}>
                 {t('thankYou.checkEmail')}
               </Typography>
               <Typography variant="body2" color="text.secondary" sx={{ fontSize: { xs: '0.75rem', md: '0.875rem' } }}>
@@ -171,9 +173,9 @@ const ThankYouPage = () => {
           </Box>
 
           <Box sx={{ display: 'flex', alignItems: 'flex-start', mb: { xs: 3, md: 4 } }}>
-            <CalendarIcon sx={{ fontSize: { xs: 32, md: 40 }, color: 'primary.main', mr: 2, flexShrink: 0 }} />
+            <CalendarIcon sx={{ fontSize: { xs: 32, md: 40 }, color: 'primary.main', mr: 2, flexShrink: 0 }} aria-hidden="true" />
             <Box>
-              <Typography variant="h6" sx={{ fontWeight: 'bold', fontSize: { xs: '1rem', md: '1.25rem' }, color: 'text.primary' }}>
+              <Typography variant="h6" component="h3" sx={{ fontWeight: 'bold', fontSize: { xs: '1rem', md: '1.25rem' }, color: 'text.primary' }}>
                 {t('thankYou.serviceActivation')}
               </Typography>
               <Typography variant="body2" color="text.secondary" sx={{ fontSize: { xs: '0.75rem', md: '0.875rem' } }}>

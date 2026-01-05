@@ -1,8 +1,12 @@
-import React, { memo, useEffect, useState, useMemo } from 'react';
+import { memo, useEffect, useState, useMemo, useId } from 'react';
 import { TextField, MenuItem } from '@mui/material';
 
 const Country = memo(({ input, meta: { touched, error } }) => {
   const [countries, setCountries] = useState([]);
+  const uniqueId = useId();
+  const inputId = input.name;
+  const errorId = `${input.name}-error-${uniqueId}`;
+  const hasError = touched && Boolean(error);
 
   useEffect(() => {
     fetch('https://restcountries.com/v3.1/all?fields=name,cca2')
@@ -38,12 +42,21 @@ const Country = memo(({ input, meta: { touched, error } }) => {
     <TextField
       select
       {...input}
-      error={touched && Boolean(error)}
+      id={inputId}
+      error={hasError}
       helperText={touched && error}
       fullWidth
       size='small'
       margin='none'
       sx={{ width: '90%', fontSize: '12px' }}
+      inputProps={{
+        'aria-invalid': hasError,
+        'aria-describedby': hasError ? errorId : undefined,
+      }}
+      FormHelperTextProps={{
+        id: errorId,
+        role: hasError ? 'alert' : undefined,
+      }}
       SelectProps={{
         MenuProps: {
           PaperProps: {

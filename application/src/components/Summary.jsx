@@ -83,7 +83,11 @@ const Summary = ({ formData, change }) => {
           onExpire={handleCaptchaExpire}
         />
         {!formData.captchaToken && (
-          <div style={{ color: 'red', fontSize: '12px', marginTop: '8px', textAlign: 'center' }}>
+          <div
+            role="alert"
+            aria-live="polite"
+            style={{ color: 'red', fontSize: '12px', marginTop: '8px', textAlign: 'center' }}
+          >
             {t('summary.captchaRequired')}
           </div>
         )}

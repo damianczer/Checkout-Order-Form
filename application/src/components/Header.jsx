@@ -18,12 +18,19 @@ export const toggleButtonStyles = {
     py: 0.5,
     minWidth: 40,
     height: 32,
+    color: 'text.primary',
+    border: '1px solid #9e9e9e',
+    backgroundColor: 'background.paper',
     '&.Mui-selected': {
         backgroundColor: 'primary.main',
-        color: 'white',
+        color: '#ffffff',
+        border: '1px solid #9e9e9e',
         '&:hover': {
             backgroundColor: 'primary.dark',
         },
+    },
+    '&:hover': {
+        backgroundColor: 'action.hover',
     },
 };
 
@@ -90,10 +97,13 @@ const Header = () => {
             position="relative"
             color="default"
             elevation={0}
+            component="header"
+            role="banner"
         >
             <Toolbar sx={{ justifyContent: { xs: 'center', sm: 'flex-start' } }}>
                 <Typography
                     variant="h5"
+                    component="span"
                     color="inherit"
                     noWrap
                     sx={{ fontWeight: 'bold' }}

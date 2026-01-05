@@ -33,14 +33,14 @@ const palette = {
     },
     dark: {
         primary: {
-            main: '#7899b8',
-            light: '#a8c0d8',
-            dark: '#5a7a99',
+            main: '#90caf9',
+            light: '#e3f2fd',
+            dark: '#42a5f5',
         },
         secondary: {
-            main: '#b39dbd',
-            light: '#d4c4db',
-            dark: '#8a7a94',
+            main: '#ce93d8',
+            light: '#f3e5f5',
+            dark: '#ab47bc',
         },
         success: {
             main: '#66bb6a',

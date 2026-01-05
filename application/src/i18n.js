@@ -41,16 +41,23 @@ const saveLanguageToCookie = (language) => {
     }
 };
 
+const updateDocumentLanguage = (language) => {
+    document.documentElement.lang = language;
+};
+
 const resources = {
     en: { translation: en },
     pl: { translation: pl }
 };
 
+const initialLanguage = getLanguageFromCookie();
+updateDocumentLanguage(initialLanguage);
+
 i18n
     .use(initReactI18next)
     .init({
         resources,
-        lng: getLanguageFromCookie(),
+        lng: initialLanguage,
         fallbackLng: 'en',
         debug: false,
         interpolation: {
@@ -60,6 +67,7 @@ i18n
 
 i18n.on('languageChanged', (lng) => {
     saveLanguageToCookie(lng);
+    updateDocumentLanguage(lng);
 });
 
 export default i18n;
