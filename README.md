@@ -17,9 +17,11 @@
 | ![Redux Form](https://img.shields.io/badge/Redux_Form-8.3.10-764ABC?style=flat-square&logo=redux) | `8.3.10` | Form State Management |
 | ![i18next](https://img.shields.io/badge/i18next-24.2.3-26A69A?style=flat-square&logo=i18next) | `24.2.3` | Internationalization |
 
-Comprehensive React Redux checkout order form with multi-step wizard, real-time validation, and responsive design optimized for both desktop and mobile devices.
+Comprehensive checkout order form with multi-step wizard, ready-made order product form for store.
 
-<img alt="checkout-light" src="https://github.com/user-attachments/assets/771ea53a-2e5a-454b-a012-64f6f7606d00" />
+<img width="1905" height="904" alt="checkout-order-home" src="https://github.com/user-attachments/assets/1c19964d-9aef-4815-92b4-18cb32f1421a" />
+
+<img width="1902" height="903" alt="checkout-order-dark" src="https://github.com/user-attachments/assets/1adbaa6b-66ad-40a4-b582-53c0a80e402f" />
 
 </div>
 
