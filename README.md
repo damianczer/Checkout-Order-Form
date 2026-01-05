@@ -1,294 +1,167 @@
+<div align="center">
+
 # Checkout Order Form
 
-A comprehensive React Redux checkout order form with advanced field validation, multi-step wizard, and responsive design. This application demonstrates modern frontend development practices with form handling, state management, and user experience optimization.
+*Professional multi-step checkout wizard with advanced validation*
 
-![Checkout Order Form](https://github.com/user-attachments/assets/771ea53a-2e5a-454b-a012-64f6f7606d00)
+[![GitHub stars](https://img.shields.io/github/stars/damianczer/Checkout-Order-Form?style=for-the-badge&color=gold)](https://github.com/damianczer/Checkout-Order-Form/stargazers)
+[![GitHub watchers](https://img.shields.io/github/watchers/damianczer/Checkout-Order-Form?style=for-the-badge&color=blue)](https://github.com/damianczer/Checkout-Order-Form/watchers)
+[![GitHub issues](https://img.shields.io/github/issues/damianczer/Checkout-Order-Form?style=for-the-badge&color=red)](https://github.com/damianczer/Checkout-Order-Form/issues)
+[![Live Demo](https://img.shields.io/badge/Live-Demo-brightgreen?style=for-the-badge)](https://www.damianczerwinski.pl/checkout-order-form/)
 
-## 🚀 Features
+| Technology | Version | Purpose |
+|------------|---------|---------|
+| ![React](https://img.shields.io/badge/React-18.2.0-61DAFB?style=flat-square&logo=react) | `18.2.0` | Modern UI Framework |
+| ![Redux](https://img.shields.io/badge/Redux-4.2.1-764ABC?style=flat-square&logo=redux) | `4.2.1` | State Management |
+| ![Material-UI](https://img.shields.io/badge/MUI-6.4.9-007FFF?style=flat-square&logo=mui) | `6.4.9` | Component Library |
+| ![Redux Form](https://img.shields.io/badge/Redux_Form-8.3.10-764ABC?style=flat-square&logo=redux) | `8.3.10` | Form State Management |
+| ![i18next](https://img.shields.io/badge/i18next-24.2.3-26A69A?style=flat-square&logo=i18next) | `24.2.3` | Internationalization |
 
-### Core Functionality
-- **Multi-step checkout process** with 4 distinct steps:
-  - Personal Data Collection
-  - Shipping Address Information
-  - Payment Details
-  - Order Summary & Confirmation
-- **Real-time form validation** with field-level error display
-- **Autofill support** with automatic validation triggering
-- **Responsive design** optimized for desktop and mobile devices
-- **Professional thank you page** with order confirmation
+Comprehensive React Redux checkout order form with multi-step wizard, real-time validation, and responsive design optimized for both desktop and mobile devices.
 
-### Advanced Form Controls
-- **Smart phone number input** with Polish (+48) country code
-- **IBAN validation** with Polish bank format (PL XX XXXX XXXX...)
-- **BIC code validation** with automatic uppercase conversion
-- **Postal code formatting** with automatic dash insertion (XX-XXX)
-- **Date picker** with default value handling
-- **Country selection** with REST Countries API integration
-- **Masked input fields** for consistent data formatting
+<img alt="checkout-light" src="https://github.com/user-attachments/assets/771ea53a-2e5a-454b-a012-64f6f7606d00" />
 
-### Validation Features
-- **Comprehensive field validation** including:
-  - Required field validation
-  - Email format validation
-  - Phone number format validation
-  - Strong password requirements
-  - Password confirmation matching
-  - Age restrictions (16-100 years)
-  - IBAN/BIC format validation
-  - Postal code format validation
-- **Real-time validation feedback** with error highlighting
-- **Form submission prevention** until all validations pass
-- **Touch-based validation** showing errors only after user interaction
+</div>
 
-## 🛠 Technologies Used
+**Key Features & Capabilities:**
 
-### Frontend Framework & Libraries
-- **React 18.2.0** - Core frontend framework
-- **Redux 4.2.1** - State management
-- **Redux Form 8.3.10** - Form state management and validation
-- **@reduxjs/toolkit 2.6.1** - Modern Redux development
+- **Multi-step Checkout Process** - 4 distinct steps: Personal Data, Shipping Address, Payment Details, Order Summary
+- **Real-time Form Validation** - Field-level error display with comprehensive validation rules
+- **Smart Input Controls** - Phone masking, IBAN/BIC validation, postal code formatting
+- **Dark/Light Theme** - Smooth theme transitions with system preference detection
+- **Internationalization** - Full support for English and Polish languages
+- **Responsive Design** - Mobile-first approach, works on all devices
+- **Accessibility** - WCAG compliant with keyboard navigation and screen reader support
+- **hCaptcha Integration** - Bot protection on order submission
 
-### UI Components & Styling
-- **Material-UI (@mui/material) 6.4.9** - Component library
-- **@mui/x-date-pickers 7.28.0** - Advanced date picker component
-- **@mui/icons-material 6.4.9** - Material Design icons
-- **@emotion/react & @emotion/styled** - CSS-in-JS styling
+## 📁 Project Architecture
 
-### Form Enhancement
-- **react-input-mask 2.0.4** - Input masking for phone, IBAN, BIC
-- **date-fns 2.29.2** - Date manipulation and formatting
+```
+Checkout-Order-Form/
+├── application/
+│   ├── public/
+│   │   └── index.html              # Main HTML template with SEO meta tags
+│   │
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── AddressData.jsx     # Shipping address form step
+│   │   │   ├── ErrorBoundary.jsx   # Error handling component
+│   │   │   ├── Footer.jsx          # Footer with modals & toggles
+│   │   │   ├── Header.jsx          # Header with theme/language toggles
+│   │   │   ├── PaymentData.jsx     # Payment details form step
+│   │   │   ├── PersonalData.jsx    # Personal information form step
+│   │   │   ├── Product.jsx         # Product line item component
+│   │   │   ├── ProductSummary.jsx  # Order summary sidebar
+│   │   │   ├── Summary.jsx         # Final review step with hCaptcha
+│   │   │   └── ThankYouPage.jsx    # Order confirmation page
+│   │   │
+│   │   ├── controls/
+│   │   │   ├── Bic.jsx             # BIC code input with validation
+│   │   │   ├── Checkbox.jsx        # Custom accessible checkbox
+│   │   │   ├── Container.jsx       # Form container layout
+│   │   │   ├── Country.jsx         # Country dropdown with API
+│   │   │   ├── DatePicker.jsx      # Date selection component
+│   │   │   ├── Iban.jsx            # IBAN input with formatting
+│   │   │   ├── Label.jsx           # Accessible form labels
+│   │   │   ├── Phone.jsx           # Phone number with masking
+│   │   │   ├── Select.jsx          # Dropdown select component
+│   │   │   ├── Text.jsx            # Text input component
+│   │   │   ├── Wrapper.jsx         # Input wrapper layout
+│   │   │   └── Zipcode.jsx         # Postal code with formatting
+│   │   │
+│   │   ├── constants/
+│   │   │   ├── config.js           # Application configuration
+│   │   │   └── products.js         # Product data definitions
+│   │   │
+│   │   ├── context/
+│   │   │   └── AppContext.js       # Theme & language context
+│   │   │
+│   │   ├── locales/
+│   │   │   ├── en.json             # English translations
+│   │   │   └── pl.json             # Polish translations
+│   │   │
+│   │   ├── theme/
+│   │   │   └── theme.js            # MUI theme configuration
+│   │   │
+│   │   ├── App.jsx                 # Main application with stepper
+│   │   ├── App.css                 # Global styles
+│   │   ├── i18n.js                 # i18next configuration
+│   │   ├── index.js                # Application entry point
+│   │   ├── store.js                # Redux store configuration
+│   │   └── validation.js           # Form validation rules
+│   │
+│   ├── craco.config.js             # CRACO configuration
+│   ├── package.json                # Dependencies & scripts
+│   └── .gitignore
+│
+├── LICENSE                         # MIT License
+└── README.md                       # Project documentation
+```
 
-### Security & External Services
-- **@hcaptcha/react-hcaptcha 1.10.1** - Bot protection
-- **REST Countries API** - Country data fetching
-
-### Development Tools
-- **FontAwesome** - Icon library for branding
-- **React Scripts 5.0.1** - Build tooling
-
-## 🌍 External APIs
-
-### REST Countries API
-- **Endpoint**: `https://restcountries.com/v3.1/all?fields=name,cca2`
-- **Purpose**: Fetches real-time country data for the country selection dropdown
-- **Error Handling**: Implements fallback mechanism and comprehensive error logging
-- **Data Processing**: Filters and formats country data for consistent display
-
-### hCaptcha Service
-- **Integration**: Bot protection on order summary page
-- **Site Key**: Configured for production use
-- **Purpose**: Prevents automated form submissions
-
-## 🔧 Installation & Setup
+## ⚒️ Installation & Setup
 
 ### Prerequisites
-- Node.js (version 14 or higher)
-- npm or yarn package manager
 
-### Installation Steps
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/yourusername/checkout-order.git
-   cd checkout-order/application
-   ```
-
-2. **Install dependencies**
-   ```bash
-   npm install
-   ```
-
-3. **Start development server**
-   ```bash
-   npm start
-   ```
-
-4. **Build for production**
-   ```bash
-   npm run build
-   ```
-
-## 📁 Project Structure
-
-```
-application/
-├── public/
-│   ├── index.html          # Main HTML template
-│   └── favicon.ico         # Application favicon
-├── src/
-│   ├── components/         # React components
-│   │   ├── AddressData.jsx     # Address form step
-│   │   ├── Copyright.jsx       # Footer component
-│   │   ├── PaymentData.jsx     # Payment form step
-│   │   ├── PersonalData.jsx    # Personal info step
-│   │   ├── Product.jsx         # Product line item
-│   │   ├── ProductSummary.jsx  # Order summary sidebar
-│   │   ├── Summary.jsx         # Final review step
-│   │   └── ThankYouPage.jsx    # Order confirmation page
-│   ├── controls/           # Custom form controls
-│   │   ├── Bic.jsx            # BIC code input
-│   │   ├── Checkbox.jsx       # Custom checkbox
-│   │   ├── Container.jsx      # Form container layout
-│   │   ├── Country.jsx        # Country dropdown
-│   │   ├── DatePicker.jsx     # Date selection
-│   │   ├── Iban.jsx           # IBAN input with formatting
-│   │   ├── Label.jsx          # Form labels
-│   │   ├── Phone.jsx          # Phone number input
-│   │   ├── Select.jsx         # Dropdown select
-│   │   ├── Text.jsx           # Text input
-│   │   ├── Wrapper.jsx        # Input wrapper
-│   │   └── Zipcode.jsx        # Postal code input
-│   ├── App.jsx             # Main application component
-│   ├── App.css             # Global styles
-│   ├── index.js            # Application entry point
-│   ├── store.js            # Redux store configuration
-│   └── validation.js       # Form validation rules
-├── package.json            # Dependencies and scripts
-└── .gitignore             # Git ignore rules
-```
-
-## 🔍 Key Problem Solutions
-
-### 1. Autofill Validation Issue
-**Problem**: Browser autofill doesn't trigger Redux Form validation
-**Solution**: Implemented custom `onChange` handlers that force validation on autofill events
-```javascript
-onChange={(event) => {
-  input.onChange(event);
-  setTimeout(() => input.onBlur(event), 0);
-}}
-```
-
-### 2. Date Picker Default Value
-**Problem**: MUI DatePicker showing default date but Redux Form not recognizing the value
-**Solution**: UseEffect hook to explicitly set default value in form state
-```javascript
-useEffect(() => {
-  if (!input.value) {
-    input.onChange(new Date());
-  }
-}, [input]);
-```
-
-### 3. Multi-step Form Validation
-**Problem**: Need to validate all fields when clicking "Next" button
-**Solution**: Touch all fields programmatically to trigger validation display
-```javascript
-const handleNext = () => {
-  dispatch(touch('contactForm', ...allFields));
-  setTimeout(() => {
-    if (valid) {
-      setActiveStep(prevActiveStep => prevActiveStep + 1);
-    }
-  }, 100);
-};
-```
-
-### 4. Input Masking with Validation
-**Problem**: Masked inputs (phone, IBAN, BIC) need both formatting and validation
-**Solution**: Custom components combining react-input-mask with Redux Form integration
-
-### 5. Responsive Layout Challenges
-**Problem**: Complex layout with sidebar and main content area
-**Solution**: CSS Grid and Flexbox combination with Material-UI breakpoints
-
-### 6. API Error Handling
-**Problem**: External REST Countries API reliability
-**Solution**: Comprehensive error handling with user-friendly fallbacks
-
-## 🎨 Design Features
-
-### Visual Design
-- **Material Design principles** throughout the application
-- **Consistent color scheme** with primary blue (#1976d2) and success green
-- **Professional typography** with proper hierarchy
-- **Smooth transitions** and hover effects
-- **Responsive breakpoints** for optimal mobile experience
-
-### User Experience
-- **Progressive disclosure** through multi-step wizard
-- **Clear visual feedback** for form validation states
-- **Intuitive navigation** with back/next buttons
-- **Loading states** and error handling
-- **Accessibility considerations** with proper ARIA labels
-
-### Form Usability
-- **Smart field formatting** (auto-dash in postal codes, phone masking)
-- **Contextual help text** through helper text and placeholders
-- **Logical field grouping** across multiple steps
-- **Validation timing** optimized for user experience
-
-## 🔒 Security Considerations
-
-- **Client-side validation** with server-side validation recommended
-- **hCaptcha integration** for bot protection
-- **Input sanitization** through controlled components
-- **XSS prevention** through React's built-in protections
-
-## 🧪 Testing Recommendations
-
-### Manual Testing Scenarios
-1. **Complete form flow** from start to finish
-2. **Validation testing** with invalid inputs
-3. **Autofill scenarios** across different browsers
-4. **Mobile responsiveness** testing
-5. **API failure handling** (disconnect internet)
-6. **Back/forward navigation** through steps
-
-### Automated Testing Setup
 ```bash
-# Install testing dependencies
-npm install --save-dev @testing-library/react @testing-library/jest-dom
-
-# Run tests
-npm test
+- Node.js 14.0.0 or higher
+- npm 7.0.0 or higher (or yarn/pnpm equivalent)
+- Modern web browser (Chrome, Firefox, Safari, Edge)
 ```
 
-## 🚀 Deployment
+### Quick Start
 
-### Build Optimization
-- **Code splitting** through React lazy loading
-- **Asset optimization** via React Scripts
-- **Production builds** with minification
+```bash
+# 1️⃣ Clone the repository
+git clone https://github.com/damianczer/Checkout-Order-Form.git
 
-### Environment Configuration
-- Configure hCaptcha site keys for different environments
-- Set up API endpoints for production
-- Configure build scripts for CI/CD
+# 2️⃣ Navigate to project directory
+cd Checkout-Order-Form/application
 
-## 📈 Performance Optimizations
+# 3️⃣ Install dependencies
+npm install
 
-- **React.memo** usage for component optimization
-- **useSelector** with memoized selectors
-- **Lazy loading** for heavy components
-- **Input debouncing** for API calls
-- **Asset optimization** and compression
+# 4️⃣ Start development server
+npm start
 
-## 🤝 Contributing
+# 🎉 Application will open at http://localhost:3000
+```
 
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+### Build for Production
 
-## 📄 License
+```bash
+# Create optimized production build
+npm run build
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+# Production files will be in the 'build' folder
+# Deploy the entire build folder to your web hosting
 
-## 👨‍💻 Author
+# Optional: Analyze bundle size
+npm run build:analyze
+```
 
-**Damian Czerwiński**
-- LinkedIn: [daczerw](https://www.linkedin.com/in/daczerw)
-- GitHub: [Your GitHub Profile]
+## 📜 License
 
-## 🙏 Acknowledgments
+```
+Copyright © 2025 Damian Czerwiński
 
-- Material-UI team for excellent component library
-- Redux Form community for form state management
-- REST Countries API for reliable country data
-- React community for comprehensive documentation
+This project is copyrighted and proprietary software.
+All rights reserved.
 
----
+Unauthorized copying, modification, distribution, or use of this software,
+via any medium, is strictly prohibited without explicit written permission
+from the copyright holder.
 
-*This project demonstrates modern React development practices with focus on user experience, form handling, and responsive design.*
+For licensing inquiries or permission requests:
+📧 Email: kontakt@damianczerwinski.pl
+🌐 Web: https://www.damianczerwinski.pl
+```
+
+<br>
+
+<div align="center">
+  
+**Made with ❤️ and ☕ by Damian Czerwiński**
+
+*Building beautiful, functional web experiences one component at a time*
+
+</div>
