@@ -1,209 +1,167 @@
-# Checkout Order Form (Purchase UI - Store)
-
-[![React](https://img.shields.io/badge/React-18.2.0-61DAFB?style=for-the-badge&logo=react)](https://reactjs.org/)
-[![Redux](https://img.shields.io/badge/Redux-4.2.1-764ABC?style=for-the-badge&logo=redux)](https://redux.js.org/)
-[![Material-UI](https://img.shields.io/badge/MUI-6.4.9-007FFF?style=for-the-badge&logo=mui)](https://mui.com/)
-[![TypeScript Ready](https://img.shields.io/badge/TypeScript-Ready-3178C6?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
-
-> **Enterprise-grade checkout solution** built with React, Redux, and Material-UI, featuring comprehensive form validation, multi-step wizard flow, and production-ready architecture.
-
-## ✨ Key Features & Capabilities
-
-### 🎯 **Advanced Form Architecture**
-- **🔄 Multi-step wizard** with seamless navigation and state persistence
-- **⚡ Real-time validation** with intelligent error handling and user feedback
-- **🤖 Smart autofill detection** with automatic validation triggering
-- **📱 Cross-platform compatibility** with responsive breakpoints
-- **🔐 Security-first approach** with client-side validation and bot protection
-
-### 🛠 **Intelligent Form Controls**
-- **📞 International phone input** with country-specific formatting (+48 PL)
-- **🏦 Banking integration** with IBAN/BIC validation and formatting
-- **📍 Geographic services** with real-time country data via REST API
-- **📅 Advanced date handling** with locale-aware formatting
-- **🎭 Input masking** for consistent data entry patterns
-
-### 🔍 **Enterprise Validation Suite**
-```javascript
-// Comprehensive validation patterns
-✅ Email RFC compliance
-✅ Strong password requirements  
-✅ International phone formats
-✅ Banking code validation (IBAN/BIC)
-✅ Age verification (16-100)
-✅ Postal code formatting
-✅ Required field enforcement
-✅ Cross-field validation
-```
-
-## 🏗 **Technical Architecture**
-
-### **State Management**
-```
-Redux Store
-├── Form State (Redux-Form)
-├── Validation State
-├── Multi-step Navigation
-└── API Integration Layer
-```
-
-### **Component Hierarchy**
-```
-App (Redux Provider)
-├── Header (Navigation + Branding)
-├── ProductSummary (Order Details)
-├── StepWizard (Form Container)
-│   ├── PersonalData
-│   ├── AddressData  
-│   ├── PaymentData
-│   └── Summary + Captcha
-└── ThankYouPage (Success State)
-```
-
-## 🚀 **Technology Stack**
-
-<table>
-  <tr>
-    <td><strong>🎨 Frontend</strong></td>
-    <td>
-      <code>React 18.2</code> • 
-      <code>Redux 4.2</code> • 
-      <code>Material-UI 6.4</code> • 
-      <code>Emotion CSS-in-JS</code>
-    </td>
-  </tr>
-  <tr>
-    <td><strong>📋 Form Management</strong></td>
-    <td>
-      <code>Redux-Form 8.3</code> • 
-      <code>React-Input-Mask 2.0</code> • 
-      <code>Date-fns 2.29</code>
-    </td>
-  </tr>
-  <tr>
-    <td><strong>🔒 Security</strong></td>
-    <td>
-      <code>hCaptcha Integration</code> • 
-      <code>XSS Protection</code> • 
-      <code>Input Sanitization</code>
-    </td>
-  </tr>
-  <tr>
-    <td><strong>🌐 External APIs</strong></td>
-    <td>
-      <code>REST Countries v3.1</code> • 
-      <code>hCaptcha Service</code>
-    </td>
-  </tr>
-  <tr>
-    <td><strong>⚡ Performance</strong></td>
-    <td>
-      <code>React.memo</code> • 
-      <code>Code Splitting</code> • 
-      <code>Memoized Selectors</code>
-    </td>
-  </tr>
-</table>
-
-## 🔧 **Quick Start Guide**
-
-### **Prerequisites**
-- Node.js 16+ & npm/yarn
-- Modern browser with ES6+ support
-
-### **Installation & Development**
-```bash
-# Clone the repository
-git clone https://github.com/damianczer/checkout-order.git
-cd checkout-order/application
-
-# Install dependencies
-npm install
-
-# Start development server
-npm start
-# → http://localhost:3000
-
-# Build for production
-npm run build
-```
-
-### **Production Deployment**
-```bash
-# Build optimized bundle
-npm run build
-
-# Deploy contents of /build folder to your hosting
-# Ensure server redirects all routes to index.html (SPA)
-```
-
-## 📊 **Performance Metrics**
-
-- **🚀 First Contentful Paint**: < 1.2s
-- **⚡ Time to Interactive**: < 2.5s  
-- **📱 Mobile Performance Score**: 95+
-- **♿ Accessibility Score**: 100
-- **💚 Best Practices**: 100
-
-## 🔒 **Security Implementation**
-
-- **🛡️ XSS Prevention**: React's built-in sanitization
-- **🤖 Bot Protection**: hCaptcha integration with token validation
-- **📝 Input Validation**: Multi-layer client-side validation
-- **🔐 Secure Headers**: Production-ready security configurations
-
-## 📈 **Scalability Features**
-
-- **🔄 Modular Architecture**: Component-based design for easy extension
-- **🧪 Testing Ready**: Structure optimized for unit/integration testing
-- **🌐 Internationalization**: Ready for multi-language support
-- **📊 Analytics Ready**: Event tracking integration points
-- **🎨 Theme Customization**: Material-UI theming system integration
-
-## 🧪 **Testing Strategy**
-
-```bash
-# Recommended testing setup
-npm install --save-dev @testing-library/react @testing-library/jest-dom
-
-# Test scenarios to cover:
-✅ Form validation rules
-✅ Multi-step navigation
-✅ API integration (mocked)
-✅ Responsive behavior
-✅ Accessibility compliance
-```
-
-## 📸 Live Preview
-
-<img src="https://github.com/user-attachments/assets/a88e0ab5-d900-4f25-be7e-3ebf61310c69"/>
-<img src="https://github.com/user-attachments/assets/6cf651e3-7323-4c43-abca-5e1bdf6013e8"/>
-<img src="https://github.com/user-attachments/assets/b8bcc0f7-824a-4e18-b063-8e4d4c935723"/>
-<img src="https://github.com/user-attachments/assets/5f2c2fe2-547f-46c9-bd09-0286bc63db22"/>
-
-## 🚀 **Production Deployment**
-
-### **Build Optimization**
-- Webpack code splitting for optimal loading
-- Asset compression and minification
-- Progressive Web App (PWA) ready
-- Service worker integration capability
-
-### **Hosting Recommendations**
-- **Static Hosting**: Netlify, Vercel, GitHub Pages
-- **Cloud Platform**: AWS S3 + CloudFront, Google Cloud Storage
-- **Traditional Hosting**: Any hosting with SPA redirect support
-
-## 📄 **License & Usage**
-
-```
-MIT License - Free for commercial and personal use
-```
-
 <div align="center">
 
-**⭐ Star this repository if it helped you build better forms!**
+# Checkout Order Form
 
-*Built with ❤️ using modern React development practices*
+*Professional multi-step checkout wizard with advanced validation*
+
+[![GitHub stars](https://img.shields.io/github/stars/damianczer/Checkout-Order-Form?style=for-the-badge&color=gold)](https://github.com/damianczer/Checkout-Order-Form/stargazers)
+[![GitHub watchers](https://img.shields.io/github/watchers/damianczer/Checkout-Order-Form?style=for-the-badge&color=blue)](https://github.com/damianczer/Checkout-Order-Form/watchers)
+[![GitHub issues](https://img.shields.io/github/issues/damianczer/Checkout-Order-Form?style=for-the-badge&color=red)](https://github.com/damianczer/Checkout-Order-Form/issues)
+[![Live Demo](https://img.shields.io/badge/Live-Demo-brightgreen?style=for-the-badge)](https://www.damianczerwinski.pl/checkout-order-form/)
+
+| Technology | Version | Purpose |
+|------------|---------|---------|
+| ![React](https://img.shields.io/badge/React-18.2.0-61DAFB?style=flat-square&logo=react) | `18.2.0` | Modern UI Framework |
+| ![Redux](https://img.shields.io/badge/Redux-4.2.1-764ABC?style=flat-square&logo=redux) | `4.2.1` | State Management |
+| ![Material-UI](https://img.shields.io/badge/MUI-6.4.9-007FFF?style=flat-square&logo=mui) | `6.4.9` | Component Library |
+| ![Redux Form](https://img.shields.io/badge/Redux_Form-8.3.10-764ABC?style=flat-square&logo=redux) | `8.3.10` | Form State Management |
+| ![i18next](https://img.shields.io/badge/i18next-24.2.3-26A69A?style=flat-square&logo=i18next) | `24.2.3` | Internationalization |
+
+Comprehensive React Redux checkout order form with multi-step wizard, real-time validation, and responsive design optimized for both desktop and mobile devices.
+
+<img alt="checkout-light" src="https://github.com/user-attachments/assets/771ea53a-2e5a-454b-a012-64f6f7606d00" />
+
+</div>
+
+**Key Features & Capabilities:**
+
+- **Multi-step Checkout Process** - 4 distinct steps: Personal Data, Shipping Address, Payment Details, Order Summary
+- **Real-time Form Validation** - Field-level error display with comprehensive validation rules
+- **Smart Input Controls** - Phone masking, IBAN/BIC validation, postal code formatting
+- **Dark/Light Theme** - Smooth theme transitions with system preference detection
+- **Internationalization** - Full support for English and Polish languages
+- **Responsive Design** - Mobile-first approach, works on all devices
+- **Accessibility** - WCAG compliant with keyboard navigation and screen reader support
+- **hCaptcha Integration** - Bot protection on order submission
+
+## 📁 Project Architecture
+
+```
+Checkout-Order-Form/
+├── application/
+│   ├── public/
+│   │   └── index.html              # Main HTML template with SEO meta tags
+│   │
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── AddressData.jsx     # Shipping address form step
+│   │   │   ├── ErrorBoundary.jsx   # Error handling component
+│   │   │   ├── Footer.jsx          # Footer with modals & toggles
+│   │   │   ├── Header.jsx          # Header with theme/language toggles
+│   │   │   ├── PaymentData.jsx     # Payment details form step
+│   │   │   ├── PersonalData.jsx    # Personal information form step
+│   │   │   ├── Product.jsx         # Product line item component
+│   │   │   ├── ProductSummary.jsx  # Order summary sidebar
+│   │   │   ├── Summary.jsx         # Final review step with hCaptcha
+│   │   │   └── ThankYouPage.jsx    # Order confirmation page
+│   │   │
+│   │   ├── controls/
+│   │   │   ├── Bic.jsx             # BIC code input with validation
+│   │   │   ├── Checkbox.jsx        # Custom accessible checkbox
+│   │   │   ├── Container.jsx       # Form container layout
+│   │   │   ├── Country.jsx         # Country dropdown with API
+│   │   │   ├── DatePicker.jsx      # Date selection component
+│   │   │   ├── Iban.jsx            # IBAN input with formatting
+│   │   │   ├── Label.jsx           # Accessible form labels
+│   │   │   ├── Phone.jsx           # Phone number with masking
+│   │   │   ├── Select.jsx          # Dropdown select component
+│   │   │   ├── Text.jsx            # Text input component
+│   │   │   ├── Wrapper.jsx         # Input wrapper layout
+│   │   │   └── Zipcode.jsx         # Postal code with formatting
+│   │   │
+│   │   ├── constants/
+│   │   │   ├── config.js           # Application configuration
+│   │   │   └── products.js         # Product data definitions
+│   │   │
+│   │   ├── context/
+│   │   │   └── AppContext.js       # Theme & language context
+│   │   │
+│   │   ├── locales/
+│   │   │   ├── en.json             # English translations
+│   │   │   └── pl.json             # Polish translations
+│   │   │
+│   │   ├── theme/
+│   │   │   └── theme.js            # MUI theme configuration
+│   │   │
+│   │   ├── App.jsx                 # Main application with stepper
+│   │   ├── App.css                 # Global styles
+│   │   ├── i18n.js                 # i18next configuration
+│   │   ├── index.js                # Application entry point
+│   │   ├── store.js                # Redux store configuration
+│   │   └── validation.js           # Form validation rules
+│   │
+│   ├── craco.config.js             # CRACO configuration
+│   ├── package.json                # Dependencies & scripts
+│   └── .gitignore
+│
+├── LICENSE                         # MIT License
+└── README.md                       # Project documentation
+```
+
+## ⚒️ Installation & Setup
+
+### Prerequisites
+
+```bash
+- Node.js 14.0.0 or higher
+- npm 7.0.0 or higher (or yarn/pnpm equivalent)
+- Modern web browser (Chrome, Firefox, Safari, Edge)
+```
+
+### Quick Start
+
+```bash
+# 1️⃣ Clone the repository
+git clone https://github.com/damianczer/Checkout-Order-Form.git
+
+# 2️⃣ Navigate to project directory
+cd Checkout-Order-Form/application
+
+# 3️⃣ Install dependencies
+npm install
+
+# 4️⃣ Start development server
+npm start
+
+# 🎉 Application will open at http://localhost:3000
+```
+
+### Build for Production
+
+```bash
+# Create optimized production build
+npm run build
+
+# Production files will be in the 'build' folder
+# Deploy the entire build folder to your web hosting
+
+# Optional: Analyze bundle size
+npm run build:analyze
+```
+
+## 📜 License
+
+```
+Copyright © 2025 Damian Czerwiński
+
+This project is copyrighted and proprietary software.
+All rights reserved.
+
+Unauthorized copying, modification, distribution, or use of this software,
+via any medium, is strictly prohibited without explicit written permission
+from the copyright holder.
+
+For licensing inquiries or permission requests:
+📧 Email: kontakt@damianczerwinski.pl
+🌐 Web: https://www.damianczerwinski.pl
+```
+
+<br>
+
+<div align="center">
+  
+**Made with ❤️ and ☕ by Damian Czerwiński**
+
+*Building beautiful, functional web experiences one component at a time*
 
 </div>
