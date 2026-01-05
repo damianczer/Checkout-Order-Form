@@ -25,7 +25,7 @@ const PersonalData = ({ formData }) => {
   return (
     <Container>
       <Wrapper>
-        <Label>{t('personalData.firstName')} *</Label>
+        <Label htmlFor="firstName">{t('personalData.firstName')} *</Label>
         <Field
           name="firstName"
           component={Text}
@@ -33,7 +33,7 @@ const PersonalData = ({ formData }) => {
         />
       </Wrapper>
       <Wrapper>
-        <Label>{t('personalData.lastName')} *</Label>
+        <Label htmlFor="lastName">{t('personalData.lastName')} *</Label>
         <Field
           name="lastName"
           component={Text}
@@ -41,7 +41,7 @@ const PersonalData = ({ formData }) => {
         />
       </Wrapper>
       <Wrapper>
-        <Label>{t('personalData.gender')} *</Label>
+        <Label htmlFor="gender" id="gender-label">{t('personalData.gender')} *</Label>
         <Field
           name="gender"
           component={Select}
@@ -52,7 +52,7 @@ const PersonalData = ({ formData }) => {
         </Field>
       </Wrapper>
       <Wrapper>
-        <Label>{t('personalData.age')} *</Label>
+        <Label htmlFor="age">{t('personalData.age')} *</Label>
         <Field
           name="age"
           component={Text}
@@ -61,7 +61,7 @@ const PersonalData = ({ formData }) => {
         />
       </Wrapper>
       <Wrapper>
-        <Label>{t('personalData.email')} *</Label>
+        <Label htmlFor="email">{t('personalData.email')} *</Label>
         <Field
           name="email"
           component={Text}
@@ -69,7 +69,7 @@ const PersonalData = ({ formData }) => {
         />
       </Wrapper>
       <Wrapper>
-        <Label>{t('personalData.phoneNumber')} *</Label>
+        <Label htmlFor="phoneNumber">{t('personalData.phoneNumber')} *</Label>
         <Field
           name="phoneNumber"
           component={Phone}
@@ -87,7 +87,7 @@ const PersonalData = ({ formData }) => {
       {formData.createAccount && (
         <>
           <Wrapper>
-            <Label>{t('personalData.password')} *</Label>
+            <Label htmlFor="password">{t('personalData.password')} *</Label>
             <Field
               name="password"
               component={Text}
@@ -96,7 +96,7 @@ const PersonalData = ({ formData }) => {
             />
           </Wrapper>
           <Wrapper>
-            <Label>{t('personalData.repeatPassword')} *</Label>
+            <Label htmlFor="repeatPassword">{t('personalData.repeatPassword')} *</Label>
             <Field
               name="repeatPassword"
               component={Text}

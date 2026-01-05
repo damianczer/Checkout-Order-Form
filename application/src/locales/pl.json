@@ -6,7 +6,10 @@
         "loading": "Ładowanie...",
         "error": "Wystąpił błąd",
         "required": "Wymagane",
-        "free": "Gratis"
+        "free": "Gratis",
+        "close": "Zamknij",
+        "skipToMain": "Przejdź do głównej treści",
+        "requiredFieldsNote": "Pola oznaczone * są wymagane"
     },
     "header": {
         "title": "DC Platform"
@@ -20,6 +23,8 @@
     },
     "checkout": {
         "title": "Zamówienie",
+        "progressLabel": "Postęp zamówienia",
+        "stepOf": "Krok {{current}} z {{total}}",
         "steps": {
             "personalData": "Dane Osobowe",
             "shippingAddress": "Adres Dostawy",

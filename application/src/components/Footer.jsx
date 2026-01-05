@@ -30,6 +30,15 @@ const footerStyles = {
     authorLink: {
         color: 'primary.main',
         textDecoration: 'none',
+        fontWeight: 500,
+        '&:hover': {
+            textDecoration: 'underline',
+            color: 'primary.light',
+        },
+        '&:focus': {
+            outline: '2px solid',
+            outlineOffset: '2px',
+        },
     },
     separator: {
         margin: '0 10px',
@@ -135,19 +144,35 @@ const Footer = () => {
                             {APP_CONFIG.author.name}
                         </Box>
                     </Typography>
-                    <Typography variant="body2" color="text.secondary" sx={{ whiteSpace: 'nowrap' }}>
+                    <Typography variant="body2" color="text.secondary" sx={{ whiteSpace: 'nowrap' }} component="div">
                         <Box
-                            component="a"
+                            component="button"
+                            type="button"
                             onClick={handlePrivacyOpen}
-                            sx={footerStyles.link}
+                            sx={{
+                                ...footerStyles.link,
+                                background: 'none',
+                                border: 'none',
+                                padding: 0,
+                                font: 'inherit',
+                            }}
+                            aria-haspopup="dialog"
                         >
                             {t('footer.privacyPolicy')}
                         </Box>
-                        <Box component="span" sx={footerStyles.separator}>|</Box>
+                        <Box component="span" sx={footerStyles.separator} aria-hidden="true">|</Box>
                         <Box
-                            component="a"
+                            component="button"
+                            type="button"
                             onClick={handleTermsOpen}
-                            sx={footerStyles.link}
+                            sx={{
+                                ...footerStyles.link,
+                                background: 'none',
+                                border: 'none',
+                                padding: 0,
+                                font: 'inherit',
+                            }}
+                            aria-haspopup="dialog"
                         >
                             {t('footer.termsOfService')}
                         </Box>
@@ -164,28 +189,41 @@ const Footer = () => {
                     <Typography variant="body2" color="text.secondary" align="center">
                         {t('footer.createdBy')}{' '}
                         <Box
-                            component="a"
-                            href={APP_CONFIG.author.website}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            sx={footerStyles.authorLink}
+                            component="span"
+                            sx={{ color: 'primary.main' }}
                         >
                             {APP_CONFIG.author.name}
                         </Box>
                     </Typography>
-                    <Typography variant="body2" color="text.secondary" align="center">
+                    <Typography variant="body2" color="text.secondary" align="center" component="div">
                         <Box
-                            component="a"
+                            component="button"
+                            type="button"
                             onClick={handlePrivacyOpen}
-                            sx={footerStyles.link}
+                            sx={{
+                                ...footerStyles.link,
+                                background: 'none',
+                                border: 'none',
+                                padding: 0,
+                                font: 'inherit',
+                            }}
+                            aria-haspopup="dialog"
                         >
                             {t('footer.privacyPolicy')}
                         </Box>
-                        <Box component="span" sx={footerStyles.separator}>|</Box>
+                        <Box component="span" sx={footerStyles.separator} aria-hidden="true">|</Box>
                         <Box
-                            component="a"
+                            component="button"
+                            type="button"
                             onClick={handleTermsOpen}
-                            sx={footerStyles.link}
+                            sx={{
+                                ...footerStyles.link,
+                                background: 'none',
+                                border: 'none',
+                                padding: 0,
+                                font: 'inherit',
+                            }}
+                            aria-haspopup="dialog"
                         >
                             {t('footer.termsOfService')}
                         </Box>
@@ -197,13 +235,17 @@ const Footer = () => {
                 </Box>
             </Box>
 
-            <Modal open={privacyOpen} onClose={handlePrivacyClose}>
-                <Box sx={footerStyles.modal}>
+            <Modal
+                open={privacyOpen}
+                onClose={handlePrivacyClose}
+                aria-labelledby="privacy-modal-title"
+            >
+                <Box sx={footerStyles.modal} role="dialog" aria-modal="true">
                     <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2 }}>
-                        <Typography variant="h5" component="h2" fontWeight="bold">
+                        <Typography id="privacy-modal-title" variant="h5" component="h2" fontWeight="bold">
                             {t('footer.privacyPolicy')}
                         </Typography>
-                        <IconButton onClick={handlePrivacyClose} size="small">
+                        <IconButton onClick={handlePrivacyClose} size="small" aria-label={t('common.close')}>
                             <CloseIcon />
                         </IconButton>
                     </Box>
@@ -215,13 +257,17 @@ const Footer = () => {
                 </Box>
             </Modal>
 
-            <Modal open={termsOpen} onClose={handleTermsClose}>
-                <Box sx={footerStyles.modal}>
+            <Modal
+                open={termsOpen}
+                onClose={handleTermsClose}
+                aria-labelledby="terms-modal-title"
+            >
+                <Box sx={footerStyles.modal} role="dialog" aria-modal="true">
                     <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2 }}>
-                        <Typography variant="h5" component="h2" fontWeight="bold">
+                        <Typography id="terms-modal-title" variant="h5" component="h2" fontWeight="bold">
                             {t('footer.termsOfService')}
                         </Typography>
-                        <IconButton onClick={handleTermsClose} size="small">
+                        <IconButton onClick={handleTermsClose} size="small" aria-label={t('common.close')}>
                             <CloseIcon />
                         </IconButton>
                     </Box>

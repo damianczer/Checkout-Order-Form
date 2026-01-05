@@ -9,6 +9,8 @@ const ProductSummary = () => {
 
     return (
         <Paper
+            component="aside"
+            aria-label={t('products.orderSummary')}
             variant="outlined"
             sx={{
                 my: { xs: 0, md: 0 },
@@ -32,7 +34,7 @@ const ProductSummary = () => {
                 }
             }}
         >
-            <Typography variant="h5" gutterBottom>
+            <Typography variant="h5" component="h2" gutterBottom>
                 {t('products.orderSummary')}
             </Typography>
             <List disablePadding>
@@ -47,7 +49,7 @@ const ProductSummary = () => {
                 ))}
                 <ListItem sx={{ py: 1, px: 0, mt: 3 }}>
                     <ListItemText primary={t('products.total')} />
-                    <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>
+                    <Typography variant="subtitle1" component="span" sx={{ fontWeight: 700 }}>
                         {TOTAL_FORMATTED}
                     </Typography>
                 </ListItem>
